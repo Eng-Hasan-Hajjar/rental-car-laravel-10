@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\RatingCar;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RatingCarController extends Controller
 {
@@ -25,7 +27,7 @@ class RatingCarController extends Controller
             'comment' => 'nullable|string',
         ]);
 
-        $rating = new Rating([
+        $rating = new RatingCar([
             'user_id' => Auth::id(),
             'car_id' => $car->id,
             'rating' => $request->rating,

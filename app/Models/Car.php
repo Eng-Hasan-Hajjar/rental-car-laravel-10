@@ -25,4 +25,9 @@ class Car extends Model
     {
         return $this->belongsTo(Garage::class);
     }
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }
