@@ -16,6 +16,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\GarageController;
+use App\Http\Controllers\MaintenanceController;
 use Symfony\Component\Console\Input\Input;
 
 
@@ -29,7 +30,14 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('/adminpanel/garages', GarageController::class);
 });
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('cars/{car}/maintenances', [MaintenanceController::class, 'index'])->name('maintenances.index');
+    Route::get('cars/{car}/maintenances/create', [MaintenanceController::class, 'create'])->name('maintenances.create');
+    Route::post('cars/{car}/maintenances', [MaintenanceController::class, 'store'])->name('maintenances.store');
+    Route::get('cars/{car}/maintenances/{maintenance}/edit', [MaintenanceController::class, 'edit'])->name('maintenances.edit');
+    Route::put('cars/{car}/maintenances/{maintenance}', [MaintenanceController::class, 'update'])->name('maintenances.update');
+    Route::delete('cars/{car}/maintenances/{maintenance}', [MaintenanceController::class, 'destroy'])->name('maintenances.destroy');
+});
 
 
 
