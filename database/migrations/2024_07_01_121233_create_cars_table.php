@@ -22,6 +22,11 @@ return new class extends Migration
             $table->string('status')->default('available'); // available, unavailable, in_maintenance
             $table->text('description')->nullable();
             $table->string('image')->nullable();
+
+            $table->unsignedBigInteger('fleet_id')->nullable()->after('id');
+
+            $table->foreign('fleet_id')->references('id')->on('fleets')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

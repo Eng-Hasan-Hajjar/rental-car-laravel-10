@@ -19,8 +19,12 @@ class Car extends Model
         'status',
         'description',
         'image',
+        'fleet_id',
     ];
-
+    public function fleet()
+    {
+        return $this->belongsTo(Fleet::class);
+    }
     public function garage()
     {
         return $this->belongsTo(Garage::class);

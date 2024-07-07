@@ -15,6 +15,7 @@ use App\Http\Controllers\RatingController;
 
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\FleetController;
 use App\Http\Controllers\GarageController;
 use App\Http\Controllers\MaintenanceController;
 use Symfony\Component\Console\Input\Input;
@@ -48,7 +49,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
     Route::delete('reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 });
-
+Route::middleware(['auth'])->group(function () {
+    Route::resource('fleets', FleetController::class);
+});
 
 
 
