@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card ">
-                    <div class="card-header ">إنشاء جديد</div>
+                    <div class="card-header "> إضافة سيارة جديدة </div>
                         @if ($errors->any())
                         <div class="alert alert-danger">
                         <ul>
@@ -32,7 +32,7 @@
                     @endif
                     <div class="card-body ">
                         {!! Form::open(['url' => '/adminpanel/car', 'class' => 'form-horizontal', 'method' => 'post','files'=> true]) !!}
-                           @include('backend.campGrounds.formAdd')
+                           @include('backend.cars.formAdd')
                         {!! Form::close()  !!}
                     </div>
                 </div>

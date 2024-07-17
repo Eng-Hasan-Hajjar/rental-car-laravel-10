@@ -20,7 +20,7 @@
                     @csrf
                     @method('PATCH')
 
-                    @include('backend.campGrounds.formEdit')
+                    @include('backend.cars.formEdit')
 
                 </form>
             </div>

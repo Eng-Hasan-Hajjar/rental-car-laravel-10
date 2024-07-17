@@ -13,20 +13,20 @@
 @section('content')
 
     <div class="container">
-        <h1>Cars</h1>
-        <a href="{{ route('cars.create') }}" class="btn btn-primary">Add New Car</a>
+        <h1 style="direction: rtl;text-align:center;padding-top:20px">السيارات</h1>
+        <a href="{{ route('cars.create') }}" class="btn btn-primary">اضافة سيارة جديدة </a>
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Year</th>
-                    <th>Color</th>
-                    <th>Seats</th>
-                    <th>Daily Rate</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+
+                    <th>العلامة التجارية</th>
+                    <th>الموديل</th>
+                    <th>العام</th>
+
+                    <th>عدد المقاعد</th>
+
+                    <th>الحالة</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -36,17 +36,17 @@
                         <td>{{ $car->brand }}</td>
                         <td>{{ $car->model }}</td>
                         <td>{{ $car->year }}</td>
-                        <td>{{ $car->color }}</td>
+
                         <td>{{ $car->seats }}</td>
-                        <td>${{ $car->daily_rate }}</td>
+
                         <td>{{ $car->status }}</td>
                         <td>
-                            <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">تفاصيل</a>
+                            <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">تحرير</a>
                             <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">حذف</button>
                             </form>
                         </td>
                     </tr>

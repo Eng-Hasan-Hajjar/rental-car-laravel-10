@@ -22,6 +22,10 @@ class UserPolicy
     {
         return $user->role === 'visitor';
     }
+    public function isCustomer(User $user)
+    {
+        return $user->role === 'customer';
+    }
     /**
      * Determine if the given user is an employee.
      */

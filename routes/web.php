@@ -1,20 +1,19 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardCarController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CampGroundController;
 use App\Http\Controllers\ReservationController;
-
-use App\Http\Controllers\ArmanController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\VisitorController;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\CampDoctorGuidController;
 use App\Http\Controllers\RatingController;
-
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarReservationController;
 use App\Http\Controllers\FleetController;
 use App\Http\Controllers\GarageController;
 use App\Http\Controllers\MaintenanceController;
@@ -26,33 +25,41 @@ use Symfony\Component\Console\Input\Input;
 ##CAR RENTAL
 
 Route::middleware(['auth'])->group(function () {
-
     Route::resource('/adminpanel/car', CarController::class);
     Route::resource('/adminpanel/garages', GarageController::class);
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('cars/{car}/maintenances', [MaintenanceController::class, 'index'])->name('maintenances.index');
-    Route::get('cars/{car}/maintenances/create', [MaintenanceController::class, 'create'])->name('maintenances.create');
-    Route::post('cars/{car}/maintenances', [MaintenanceController::class, 'store'])->name('maintenances.store');
-    Route::get('cars/{car}/maintenances/{maintenance}/edit', [MaintenanceController::class, 'edit'])->name('maintenances.edit');
-    Route::put('cars/{car}/maintenances/{maintenance}', [MaintenanceController::class, 'update'])->name('maintenances.update');
-    Route::delete('cars/{car}/maintenances/{maintenance}', [MaintenanceController::class, 'destroy'])->name('maintenances.destroy');
+    Route::resource('cars', CarController::class);
+
+    Route::prefix('cars/{car}')->group(function () {
+        Route::get('maintenances', [MaintenanceController::class, 'index'])->name('cars.maintenances.index');
+        Route::get('maintenances/create', [MaintenanceController::class, 'create'])->name('cars.maintenances.create');
+        Route::post('maintenances', [MaintenanceController::class, 'store'])->name('cars.maintenances.store');
+        Route::get('maintenances/{maintenance}', [MaintenanceController::class, 'show'])->name('cars.maintenances.show');
+        Route::get('maintenances/{maintenance}/edit', [MaintenanceController::class, 'edit'])->name('cars.maintenances.edit');
+        Route::put('maintenances/{maintenance}', [MaintenanceController::class, 'update'])->name('cars.maintenances.update');
+        Route::delete('maintenances/{maintenance}', [MaintenanceController::class, 'destroy'])->name('cars.maintenances.destroy');
+    });
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('reservations', [ReservationController::class, 'index'])->name('reservations.index');
-    Route::get('cars/{car}/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
-    Route::post('cars/{car}/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-    Route::get('reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
-    Route::get('reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
-    Route::put('reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
-    Route::delete('reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+    Route::get('reservations', [CarReservationController::class, 'index'])->name('reservations.index');
+    Route::get('cars/{car}/reservations/create', [CarReservationController::class, 'create'])->name('reservations.create');
+    Route::post('cars/{car}/reservations', [CarReservationController::class, 'store'])->name('reservations.store');
+    Route::get('reservations/{reservation}', [CarReservationController::class, 'show'])->name('reservations.show');
+    Route::get('reservations/{reservation}/edit', [CarReservationController::class, 'edit'])->name('reservations.edit');
+    Route::put('reservations/{reservation}', [CarReservationController::class, 'update'])->name('reservations.update');
+    Route::delete('reservations/{reservation}', [CarReservationController::class, 'destroy'])->name('reservations.destroy');
 });
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('fleets', FleetController::class);
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboardcar', [AdminDashboardCarController::class, 'index'])->name('dashboardcar');
+});
 
 
 
@@ -121,17 +128,6 @@ Route::middleware('auth')->group(function () {
 
 });
 
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-*/
-
-
-
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -141,30 +137,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-/////////////////////////////////////---CampGround
 
-/*
-Route::get('/campground', function () {
-    return view('backend.campGround');
-})->middleware(['auth', 'verified'])->name('campground');
-
-Route::middleware(['auth'])->group(function () {
-
-    Route::get('/campground', [CampgroundController::class, 'index'])->name('campground');
-
-});
-
-*/
 #-------------camping grounds
 
 Route::middleware(['auth'])->group(function () {
-
-    //Route::get('/campground1', [CampgroundController::class, 'index'])->name('campground1');
-
     Route::resource('/adminpanel/campground', CampGroundController::class);
-
-   // Route::resource('/campground', CampGroundController::class);
-
 });
 
 
@@ -172,17 +149,6 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-#-------------Armenia module
-
-Route::middleware(['auth'])->group(function () {
-
-
-
-  //  Route::resource('/adminpanel/arman', ArmanController::class);
-
-
-
-});
 
 
 
@@ -192,31 +158,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('/adminpanel/reservations', ReservationController::class);
 
-
-
-/*
-// عرض النموذج لإنشاء حجز جديد
-Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
-
-// حفظ الحجز الجديد في قاعدة البيانات
-Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
-Route::get('/getreservations', [ReservationController::class, 'showAll'])->name('reservations.showAll');
-
-// عرض التفاصيل لحجز معين
-Route::get('/reservations/{reservation}', [ReservationController::class, 'show'])->name('reservations.show');
-
-// عرض جميع الحجوزات
-Route::get('/reservations/all', [ReservationController::class, 'showAll'])->name('reservations.all');
-
-// عرض النموذج لتعديل حجز معين
-Route::get('/reservations/{reservation}/edit', [ReservationController::class, 'edit'])->name('reservations.edit');
-
-// تحديث بيانات الحجز في قاعدة البيانات
-Route::put('/reservations/{reservation}', [ReservationController::class, 'update'])->name('reservations.update');
-
-// حذف حجز معين من قاعدة البيانات
-Route::delete('/reservations/{reservation}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
-*/
 });
 
 

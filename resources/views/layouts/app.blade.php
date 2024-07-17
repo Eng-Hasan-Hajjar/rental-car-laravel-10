@@ -42,21 +42,7 @@
             @include('backend.home.dashboardinfo')
         </main>
 
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-
-                        <h5 class="card-title">تغيير لون الخلفية</h5>
-                        <input type="color" id="backgroundColorPicker" class="form-control" value="#ffffff">
-
-                        <button id="whiteButton" class="btn btn-primary">أبيض</button>
-                        <button id="blackButton" class="btn btn-primary">أسود</button>
-
-
-                </div>
-
-            </div>
-        </div>
+      
         <div class="col-md-12">
             <div class="card">
 

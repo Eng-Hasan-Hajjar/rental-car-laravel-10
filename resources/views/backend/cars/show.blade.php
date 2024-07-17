@@ -125,34 +125,34 @@
     @endif
 
     <div class="container">
-        <h1>Car Details</h1>
+        <h1 > تفاصيل السيارة  </h1>
         <div>
-            <strong>Brand:</strong> {{ $car->brand }}
+            <strong>العلامة التجارية :</strong> {{ $car->brand }}
         </div>
         <div>
-            <strong>Model:</strong> {{ $car->model }}
+            <strong>الموديل:</strong> {{ $car->model }}
         </div>
         <div>
-            <strong>Year:</strong> {{ $car->year }}
+            <strong>العام:</strong> {{ $car->year }}
         </div>
         <div>
-            <strong>Color:</strong> {{ $car->color }}
+            <strong>اللون:</strong> {{ $car->color }}
         </div>
         <div>
-            <strong>Seats:</strong> {{ $car->seats }}
+            <strong>عدد المقاعد:</strong> {{ $car->seats }}
         </div>
         <div>
-            <strong>Daily Rate:</strong> ${{ $car->daily_rate }}
+            <strong> تقييم اليومي:</strong> ${{ $car->daily_rate }}
         </div>
         <div>
-            <strong>Status:</strong> {{ $car->status }}
+            <strong>الحالة:</strong> {{ $car->status }}
         </div>
         <div>
-            <strong>Description:</strong> {{ $car->description }}
+            <strong>الوصف:</strong> {{ $car->description }}
         </div>
         @if ($car->image)
             <div>
-                <strong>Image:</strong> <img src="{{ Storage::url($car->image) }}" alt="{{ $car->model }}" style="width: 200px;">
+                <strong>الصورة:</strong> <img src="{{ Storage::url($car->image) }}" alt="{{ $car->model }}" style="width: 200px;">
             </div>
         @endif
     </div>
@@ -168,7 +168,7 @@
                      @csrf
                      <p class="font-weight-bold ">التقييم </p>
                      <div class="form-group row">
-                        <input type="hidden" name="camp_ground_id" value="{{ $data->id }}">
+                        <input type="hidden" name="car_id" value="{{ $data->id }}">
                         <div class="col">
                            <div class="rate">
                               <input type="radio" id="star5" class="rate" name="rating" value="5"/>

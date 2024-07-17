@@ -5,7 +5,7 @@
   <a href="#" class="nav-link">
     <i class="nav-icon fas fa-users"></i>
     <p>
-    صفحات الموقع
+     الموقع
       <i class="fas fa-angle-left right"></i>
     </p>
   </a>
@@ -22,30 +22,28 @@
 </li>
 
 
-
-
-{{-- Visitor --}}
+{{-- Customer --}}
 
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
       <p>
-       الزائرين
+       الزبائن
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/visitors/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/customers/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>إضافة  زائر </p>
+          <p>إضافة  زبون </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/visitors/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/customers/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>كل  الزائرين</p>
+          <p>كل  الزبائن</p>
         </a>
       </li>
 
@@ -53,33 +51,63 @@
   </li>
 
 
-{{-- campground --}}
+
+{{-- cars --}}
 
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-              أماكن التخييم
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('/adminpanel/campground/create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>اضافة مخيم </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('/adminpanel/campground/')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>كل الأماكن</p>
-                </a>
-              </li>
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+         السيارات
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/car/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إضافة  سيارة </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/car/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل  السيارات</p>
+        </a>
+      </li>
 
-            </ul>
-          </li>
+    </ul>
+  </li>
+
+{{-- Guides --}}
+
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-users"></i>
+      <p>
+         الكراجات
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>إضافة  كراج </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>كل  الكراجات</p>
+        </a>
+      </li>
+
+    </ul>
+  </li>
+
 
 
 
@@ -90,114 +118,84 @@
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
       <p>
-        الأدلة السياحيين
+         الصيانات
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/guides/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>إضافة دليل سياحي </p>
+          <p>إضافة  صيانة </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/guides/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>كل الأدلة السياحيين</p>
+          <p>كل  الصيانات</p>
         </a>
       </li>
 
     </ul>
   </li>
 
-{{-- Doctors --}}
+
+{{-- Guides --}}
 
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
       <p>
-        الأطباء
+         الحجوزات
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/doctors/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>إضافة طبيب </p>
+          <p>إضافة  حجز </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/doctors/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>كل الأطباء</p>
+          <p>كل  الحجوزات</p>
         </a>
       </li>
 
     </ul>
   </li>
 
-{{-- camp uides doctor package --}}
+
+{{-- Guides --}}
 
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-users"></i>
       <p>
-    مجموعة الرحلة
+         الأساطيل
         <i class="fas fa-angle-left right"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/camp_doctor_guid/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>اضافة مجموعة </p>
+          <p>إضافة  أسطول </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/camp_doctor_guid/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
-          <p>كل المجموعات</p>
+          <p>كل  الأساطيل</p>
         </a>
       </li>
 
     </ul>
   </li>
-
-
-
-{{-- Reservations --}}
-
-
-<li class="nav-item has-treeview">
-    <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
-      <p>
-        الحجوزات
-        <i class="fas fa-angle-left right"></i>
-      </p>
-    </a>
-    <ul class="nav nav-treeview">
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/reservations/create')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>إضافة حجز </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="{{url('/adminpanel/reservations/')}}" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
-          <p>كل الحجوزات</p>
-        </a>
-      </li>
-
-    </ul>
-  </li>
-
-
 
 
 

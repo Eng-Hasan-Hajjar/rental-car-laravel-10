@@ -40,7 +40,7 @@ class CarController extends Controller
 
         $car->save();
 
-        return redirect()->route('backend.cars.index')->with('success', 'Car created successfully.');
+        return redirect()->route('cars.index')->with('success', 'Car created successfully.');
     }
 
     public function show(Car $car)

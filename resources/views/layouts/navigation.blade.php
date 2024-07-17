@@ -6,39 +6,70 @@
 
                  <!-- Navigation Links -->
                  <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboardcar')" :active="request()->routeIs('dashboardcar')">
                         {{ __('لوحة التحكم') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('campground.index')" :active="request()->routeIs('campground.index')">
-                        {{ __('أماكن التخييم') }}
-                    </x-nav-link>
-                </div>
-                   <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
-                        {{ __('الحجوزات') }}
-                    </x-nav-link>
-                </div>
+
+
 
                 @if (Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
+                            {{ __('إدارة السيارات') }}
+                        </x-nav-link>
+                    </div>
 
-                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.index')">
-                        {{ __('الأطباء') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')">
-                        {{ __('الأدلة') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('visitors.index')" :active="request()->routeIs('visitors.index')">
-                        {{ __('الزائرين') }}
-                    </x-nav-link>
-                </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
+                            {{ __('إدارة الحجوزات للسيارات') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('cars.maintenances.index', ['car' => 1])" :active="request()->routeIs('cars.maintenances.index', ['car' => 1])">
+                            {{ __('إدارة صيانة السيارات') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('fleets.index')" :active="request()->routeIs('fleets.index')">
+                            {{ __('إدارة أسطول السيارات') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('garages.index')" :active="request()->routeIs('garages.index')">
+                            {{ __('إدارة الكراجات ') }}
+                        </x-nav-link>
+                    </div>
+
+                @elseif (Auth::user()->can('isCustomer'))
+
+
                 @else
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('campground.index')" :active="request()->routeIs('campground.index')">
+                            {{ __('أماكن التخييم') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
+                            {{ __('الحجوزات') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.index')">
+                            {{ __('الأطباء') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')">
+                            {{ __('الأدلة') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('visitors.index')" :active="request()->routeIs('visitors.index')">
+                            {{ __('الزائرين') }}
+                        </x-nav-link>
+                    </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('visitors.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('visitors.showByUserId', ['userId' => Auth::user()->id])">
                             {{ __(' معلوماتي ') }}

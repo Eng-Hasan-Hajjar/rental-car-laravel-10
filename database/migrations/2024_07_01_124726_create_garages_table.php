@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('garages', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('location')->nullable();
+            $table->integer('phone_number')->nullable();
+            $table->integer('working_hours')->nullable();
+
             $table->timestamps();
         });
     }
