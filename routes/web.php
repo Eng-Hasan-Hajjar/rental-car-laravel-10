@@ -23,7 +23,9 @@ use Symfony\Component\Console\Input\Input;
 
 
 ##CAR RENTAL
-
+Route::get('/', function () {
+    return view('frontend_car.index');
+});
 Route::middleware(['auth'])->group(function () {
     Route::resource('/adminpanel/car', CarController::class);
     Route::resource('/adminpanel/garages', GarageController::class);
@@ -96,12 +98,12 @@ Route::get('forest',[CampGroundController::class, 'forest'])->name('camp.forest'
 Route::get('desert',[CampGroundController::class, 'desert'])->name('camp.desert');
 Route::get('mountain',[CampGroundController::class, 'mountain'])->name('camp.mountain');
 Route::get('ratings', [RatingController::class, 'index'])->name('ratings.index');
-
+/*
 Route::get('/', function () {
     return view('frontend.index');
 });
 
-
+*/
 
 // روابط CRUD الخاصة بـ CampDoctorGuid
 Route::resource('adminpanel/camp_doctor_guid', CampDoctorGuidController::class);

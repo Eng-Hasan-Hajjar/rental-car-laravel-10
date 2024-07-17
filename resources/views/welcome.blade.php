@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>الليل المضيء  </title>
+        <title> يلا سيارة </title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
