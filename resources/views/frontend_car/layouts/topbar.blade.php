@@ -3,8 +3,8 @@
     <div class="row">
         <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center">
-                <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</a>
-                <span class="text-body">|</span>
+                <a class="text-body pr-3" href=""><i class="fa fa-phone-alt mr-2"></i>   345 6789 963+ </a>
+                <span class="text-body"> | </span>
                 <a class="text-body px-3" href=""><i class="fa fa-envelope mr-2"></i>info@example.com</a>
             </div>
         </div>
