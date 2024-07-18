@@ -43,14 +43,6 @@
     <!-- Team End -->
 
 
-    <!-- Banner2 Start -->
-        @include('frontend_car.layouts.banner2')
-    <!-- Banner2 End -->
-
-
-    <!-- Testimonial Start -->
-        @include('frontend_car.layouts.testimonial')
-    <!-- Testimonial End -->
 
 
     <!-- Contact Start -->

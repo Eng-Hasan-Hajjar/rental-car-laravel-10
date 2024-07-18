@@ -1,6 +1,6 @@
-<div class="container-fluid py-5">
+<div class="container-fluid py-5"   style="direction:rtl"  >
     <div class="container pt-5 pb-3">
-        <h1 class="display-1 text-primary text-center">06</h1>
+        <h1 class="display-1 text-primary text-center">04</h1>
         <h1 class="display-4 text-uppercase text-center mb-5">  اتصل بنا  </h1>
         <div class="row">
             <div class="col-lg-7 mb-2">

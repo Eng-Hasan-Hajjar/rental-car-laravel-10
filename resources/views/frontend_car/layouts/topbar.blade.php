@@ -1,5 +1,5 @@
  <!-- Topbar Start -->
- <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block">
+ <div class="container-fluid bg-dark py-3 px-lg-5 d-none d-lg-block"  style="direction:rtl" >
     <div class="row">
         <div class="col-md-6 text-center text-lg-left mb-2 mb-lg-0">
             <div class="d-inline-flex align-items-center">

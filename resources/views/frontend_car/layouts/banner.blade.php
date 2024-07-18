@@ -1,4 +1,4 @@
-<div class="container-fluid py-5">
+<div class="container-fluid py-5" style="direction:rtl"  >
     <div class="container py-5">
         <div class="bg-banner py-5 px-4 text-center">
             <div class="py-5">

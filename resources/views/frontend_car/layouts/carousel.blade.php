@@ -1,5 +1,5 @@
 
-<div class="container-fluid p-0" style="margin-bottom: 90px;">
+<div class="container-fluid p-0" style="margin-bottom: 90px;" >
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">

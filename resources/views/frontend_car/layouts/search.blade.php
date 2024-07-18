@@ -1,4 +1,4 @@
-<div class="container-fluid bg-white pt-3 px-lg-5">
+<div class="container-fluid bg-white pt-3 px-lg-5"   style="direction:rtl"  >
     <div class="row mx-n2">
         <div class="col-xl-2 col-lg-4 col-md-6 px-2">
             <select class="custom-select px-4 mb-3" style="height: 50px;">
