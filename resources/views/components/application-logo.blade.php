@@ -1,2 +1,2 @@
 
-<img src="images/camping-logo.webp"  width="10%;" height="10%" style="position: center;margin-left:43%;">
+<img src="images/logo.png"  width="40%;" height="40%" style="position: center;margin-left:33%;">

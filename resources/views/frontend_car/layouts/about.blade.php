@@ -5,7 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-center">
                 <img class="w-75 mb-4" src={{asset("frontendAssetCar/img/about.png")}} alt="">
-                <p>Justo et eos et ut takimata sed sadipscing dolore lorem, et elitr labore labore voluptua no rebum sed, stet voluptua amet sed elitr ea dolor dolores no clita. Dolores diam magna clita ea eos amet, amet rebum voluptua vero vero sed clita accusam takimata. Nonumy labore ipsum sea voluptua sea eos sit justo, no ipsum sanctus sanctus no et no ipsum amet, tempor labore est labore no. Eos diam eirmod lorem ut eirmod, ipsum diam sadipscing stet dolores elitr elitr eirmod dolore. Magna elitr accusam takimata labore, et at erat eirmod consetetur tempor eirmod invidunt est, ipsum nonumy at et.</p>
+                <p>مرحباً بكم في موقع تأجير السيارات الذي يجمع بين الفخامة والراحة والكفاءة في تجربة واحدة لا تُنسى. نقدم لك مجموعة متنوعة من السيارات التي تناسب جميع احتياجاتك وأذواقك، بدءًا من السيارات الاقتصادية التي تلبي احتياجات الرحلات اليومية وصولاً إلى السيارات الفاخرة التي تضيف لمسة من الأناقة لرحلاتك الخاصة والمناسبات الهامة. يتميز موقعنا بسهولة الاستخدام وواجهة مريحة تتيح لك الحجز بسرعة وسلاسة، مع توفير جميع المعلومات التي تحتاجها لاتخاذ القرار الأمثل. سواء كنت تبحث عن سيارة للاستخدام اليومي أو لرحلة عمل، أو حتى لمغامرة سياحية، فإننا نضمن لك تجربة خالية من المتاعب. يتيح لك موقعنا اختيار السيارة المثالية من بين أسطولنا المتنوع والحجز بخطوات بسيطة عبر الإنترنت، مع خيارات مرنة لاستلام وتسليم السيارة في المواقع التي تناسبك. بالإضافة إلى ذلك، نلتزم بتقديم خدمة عملاء متميزة على مدار الساعة لضمان رضاك التام. استمتع بقيادة السيارات الحديثة والمجهزة بأحدث التقنيات وتأكد من أننا نقدم لك أفضل الأسعار في السوق. دعنا نكون رفيق رحلتك المثالي، واجعل استئجار السيارة جزءًا ممتعًا وسلسًا من تجربتك اليومية.
+
+
+
+
+
+
+                </p>
             </div>
         </div>
         <div class="row mt-3">

@@ -50,20 +50,14 @@
     <!-- Contact End -->
 
 
-    <!-- Vendor Start -->
-        @include('frontend_car.layouts.vendor')
-    <!-- Vendor End -->
-
-
-
 
 
         @include('frontend_car.layouts.footer')
 
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <!-- Back to Top
+         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+ -->
         @include('frontend_car.layouts.javascript')
 
 

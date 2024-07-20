@@ -45,8 +45,8 @@
 
                 <div class="col-md-6">
                     <select id="role" class="form-control" name="role" required>
-                        <option value="employee">موظف </option>
-                        <option value="visitor">زائر</option>
+                        <option value="customer"> زبون</option>
+                        <option value="employee"> موظف </option>
                     </select>
                 </div>
          </div>

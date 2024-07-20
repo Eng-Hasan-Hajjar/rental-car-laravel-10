@@ -12,10 +12,10 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container" style="margin-right: 10px;margin-left:100px">
         <h1 style="direction: rtl;text-align:center;padding-top:20px">السيارات</h1>
         <a href="{{ route('cars.create') }}" class="btn btn-primary">اضافة سيارة جديدة </a>
-        <table class="table mt-4">
+        <table class="table mt-4"style="margin-left:300px">
             <thead>
                 <tr>
 
@@ -32,14 +32,17 @@
             <tbody>
                 @foreach($cars as $car)
                     <tr>
-                        <td>{{ $car->id }}</td>
+
                         <td>{{ $car->brand }}</td>
                         <td>{{ $car->model }}</td>
                         <td>{{ $car->year }}</td>
 
                         <td>{{ $car->seats }}</td>
-
-                        <td>{{ $car->status }}</td>
+                        @if($car->status== "available")
+                             <td> متوفرة </td>
+                        @else
+                             <td>   غير متوفرة</td>
+                        @endif
                         <td>
                             <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">تفاصيل</a>
                             <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">تحرير</a>

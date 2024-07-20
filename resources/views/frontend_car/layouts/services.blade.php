@@ -12,7 +12,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">01</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">   تاجير سيارة   </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
 
                 </div>
             </div>
@@ -25,7 +24,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">02</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">  تمويل السيارات  </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-2">
@@ -37,7 +35,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">03</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">   فحص السيارات   </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-2">
@@ -49,7 +46,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">04</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">   إصلاح السيارات  </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-2">
@@ -61,7 +57,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">05</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">   الرسم التلقائي  </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-2">
@@ -73,7 +68,6 @@
                         <h1 class="display-2 text-white mt-n2 m-0">06</h1>
                     </div>
                     <h4 class="text-uppercase mb-3"style="direction:rtl;text-align:center">   التنظيف التلقائي  </h4>
-                    <p class="m-0">Kasd dolor no lorem nonumy sit labore tempor at justo rebum rebum stet, justo elitr dolor amet sit sea sed</p>
                 </div>
             </div>
         </div>

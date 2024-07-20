@@ -1,6 +1,6 @@
 @extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 @section('title')
-    معلومات عن المكان
+    التفاصيل
 @endsection
 
 <head>
@@ -103,63 +103,87 @@
 
 @section('content')
     <div class="jumbotron text-center"  style=" direction: rtl;">
-        <div align="right" style="width: 335px; margin-left: 335px ;margin-bottom: 20px">
-            <a href="{{ route('car.index') }}" class="btn btn-default">  رجوع </a>
-        </div>
-        <br />
-        @if (Auth::check())
-        <!-- عرض رسائل الجلسة -->
-        @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
-        @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        @endif
 
-    @endif
 
-    <div class="container">
-        <h1 > تفاصيل السيارة  </h1>
-        <div>
-            <strong>العلامة التجارية :</strong> {{ $car->brand }}
-        </div>
-        <div>
-            <strong>الموديل:</strong> {{ $car->model }}
-        </div>
-        <div>
-            <strong>العام:</strong> {{ $car->year }}
-        </div>
-        <div>
-            <strong>اللون:</strong> {{ $car->color }}
-        </div>
-        <div>
-            <strong>عدد المقاعد:</strong> {{ $car->seats }}
-        </div>
-        <div>
-            <strong> تقييم اليومي:</strong> ${{ $car->daily_rate }}
-        </div>
-        <div>
-            <strong>الحالة:</strong> {{ $car->status }}
-        </div>
-        <div>
-            <strong>الوصف:</strong> {{ $car->description }}
-        </div>
-        @if ($car->image)
-            <div>
-                <strong>الصورة:</strong> <img src="{{ Storage::url($car->image) }}" alt="{{ $car->model }}" style="width: 200px;">
+
+    <div class="container my-5" style="direction: rtl">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>العلامة التجارية:</strong> {{ $car->brand }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>الموديل:</strong> {{ $car->model }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>العام:</strong> {{ $car->year }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>اللون:</strong> {{ $car->color }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>عدد المقاعد:</strong> {{ $car->seats }}
+                    </div>
+                    <div class="col-md-6">
+                        <strong>الأجرة اليومية:</strong> ${{ $car->daily_rate }}
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <strong>الحالة:</strong>
+
+                        @if ( $car->status == "available")
+                               متوفرة
+                        @elseif ($car->status == "unavailable")
+                             غير متوفرة
+                        @else
+                             في الصيانة
+                        @endif
+
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <strong>الوصف:</strong> {{ $car->description }}
+                    </div>
+                </div>
+                @if ($car->image)
+                    <div class="row mb-3">
+                        <div class="col">
+                            <strong>الصورة:</strong>
+                            <img src="{{ URL::to('/') }}/images/{{ $car->image }}" class="img-thumbnail" style="width: 300px; height: auto;" />
+
+                        </div>
+                    </div>
+                @endif
             </div>
-        @endif
+        </div>
     </div>
 
 
 
+    @if (Auth::check())
+    <!-- عرض رسائل الجلسة -->
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    @if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
 
+    @endif
 
         <div class="container" style=" direction: rtl;" >
             <div class="row" style=" direction: rtl;">
@@ -168,7 +192,7 @@
                      @csrf
                      <p class="font-weight-bold ">التقييم </p>
                      <div class="form-group row">
-                        <input type="hidden" name="car_id" value="{{ $data->id }}">
+                        <input type="hidden" name="car_id" value="{{ $car->id }}">
                         <div class="col">
                            <div class="rate">
                               <input type="radio" id="star5" class="rate" name="rating" value="5"/>

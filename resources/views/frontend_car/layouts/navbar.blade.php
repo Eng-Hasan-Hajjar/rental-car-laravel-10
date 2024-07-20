@@ -31,6 +31,19 @@
                     <a href="contact.html" class="nav-item nav-link"> اتصال </a>
                 </div>
             </div>
+
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> الحساب </a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="login" class="dropdown-item"> تسجيل دخول </a>
+                    <a href="register" class="dropdown-item"> انشاء حساب </a>
+                    <a href="" class="dropdown-item">    لوحة التحكم </a>
+                </div>
+            </div>
+
+
+
         </nav>
     </div>
 </div>
