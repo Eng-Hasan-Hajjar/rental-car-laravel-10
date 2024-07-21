@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('image')->nullable();
 
             $table->unsignedBigInteger('fleet_id')->nullable();
-
+           
             $table->foreign('fleet_id')->references('id')->on('fleets')->onDelete('cascade');
 
             $table->timestamps();

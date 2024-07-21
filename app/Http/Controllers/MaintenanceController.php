@@ -45,9 +45,10 @@ class MaintenanceController extends Controller
         return view('backend.maintenances.show', compact('maintenance'));
     }
 
-    public function edit(Car $car, Maintenance $maintenance)
+    public function edit( Maintenance $maintenance)
     {
-        return view('backend.maintenances.edit', compact('car', 'maintenance'));
+        $cars = Car::where('status', 'in_maintenance')->get();
+        return view('backend.maintenances.edit', compact('cars', 'maintenance'));
     }
 
     public function update(Request $request, Car $car, Maintenance $maintenance)

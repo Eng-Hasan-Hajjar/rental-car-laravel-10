@@ -17,24 +17,34 @@
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th>الرقم </th>
+                    <th >   رقم الصيانة </th>
+                    <th> العلامة التجارية للسيارة </th>
+                    <th> رقم السيارة </th>
                     <th> التاريخ </th>
                     <th>التفاصيل </th>
                     <th> التحكم </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($maintenances as $maintenance)
+                @foreach($maintenances as $maintenance )
+
                     <tr>
+
+
+
                         <td>{{ $maintenance->id }}</td>
+                        <td>{{ $maintenance->car->brand }}</td>
+                        <td>{{ $maintenance->car_id }}</td>
                         <td>{{ $maintenance->date }}</td>
                         <td>{{ $maintenance->details }}</td>
                         <td>
                             <a href="{{ route('maintenances.edit', [ $maintenance->id]) }}" class="btn btn-warning"> تعديل </a>
+                            <a href="{{ route('maintenances.show',[ $maintenance->id]) }}" class="btn btn-info">تفاصيل</a>
+
                             <form action="{{ route('maintenances.destroy', [ $maintenance->id]) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"> حذف </button>
+                                <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من عملية الحذف؟');"> حذف </button>
                             </form>
                         </td>
                     </tr>

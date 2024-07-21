@@ -1,7 +1,7 @@
 @extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
 
 @section('title')
-التعديل 
+التعديل
 @endsection
 
 @section('header')
@@ -13,7 +13,7 @@
 @section('content')
     <div class="container">
         <h1>التعديل </h1>
-        <form action="{{ route('maintenances.update', [$car->id, $maintenance->id]) }}" method="POST">
+        <form action="{{ route('maintenances.update', [ $maintenance->id]) }}" method="POST">
             @csrf
             @method('PUT')
             @include('backend.maintenances.partials.form')

@@ -133,7 +133,12 @@
                         <strong>عدد المقاعد:</strong> {{ $car->seats }}
                     </div>
                     <div class="col-md-6">
-                        <strong>الأجرة اليومية:</strong> ${{ $discountedRate }}
+                        <strong>الأجرة اليومية:</strong>
+                            @if (Auth::check() && Auth::user()->created_at->diffInDays(now()) > 2 )
+                                 {{ $discountedRate }} (ل.س)(سعر خاص)
+                            @else
+                                 {{ $car->daily_rate }} (ل.س)
+                            @endif
                     </div>
                 </div>
                 <div class="row mb-3">

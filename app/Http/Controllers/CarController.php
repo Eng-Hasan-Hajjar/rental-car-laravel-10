@@ -63,7 +63,16 @@ class CarController extends Controller
 
     public function show(Car $car)
     {
-        return view('backend.cars.show', compact('car'));
+        //$car = Car::find($id);
+        $user = Auth::user();
+
+        // حساب السعر بناءً على مدة تسجيل المستخدم
+        if ($user) {
+            $discountedRate = $car->getDiscountedRate($user);
+        } else {
+            $discountedRate = $car->daily_rate;
+        }
+        return view('backend.cars.show', compact('car', 'discountedRate'));
     }
 
     public function edit(Car $car)

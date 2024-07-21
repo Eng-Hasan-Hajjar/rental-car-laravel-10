@@ -19,6 +19,7 @@ class Car extends Model
         'status',
         'description',
         'image',
+        'garage_id',
         'fleet_id',
     ];
     public function fleet()
