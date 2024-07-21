@@ -102,13 +102,15 @@
 
 
 @section('content')
-    <div class="jumbotron text-center"  style=" direction: rtl;">
+    <div class=""  style=" direction: rtl;">
 
 
 
     <div class="container my-5" style="direction: rtl">
         <div class="card">
-
+            <div align="right" style="width: 335px; margin-left: 335px ;margin-bottom: 20px">
+                <a href="{{ route('cars.index') }}" class="btn btn-default">  رجوع </a>
+            </div>
             <div class="card-body">
                 <div class="row mb-3">
                     <div class="col-md-6">

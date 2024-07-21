@@ -76,28 +76,35 @@ class CarController extends Controller
     }
 
     public function update(Request $request, Car $car)
-    {
-        $request->validate([
-            'brand' => 'required|string|max:255',
-            'model' => 'required|string|max:255',
-            'year' => 'required|integer',
-            'color' => 'required|string|max:50',
-            'seats' => 'required|integer',
-            'daily_rate' => 'required|numeric',
-            'status' => 'required|string|max:50',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|max:2048',
-        ]);
+    { $request->validate([
+        'brand' => 'required',
 
-        $car->fill($request->all());
+    ]);
+    $image = $request->file('image');
 
-        if ($request->hasFile('image')) {
-            $car->image = $request->file('image')->store('cars', 'public');
-        }
+    $new_name = rand() . '.' . $image->getClientOriginalExtension();
+    $image->move(public_path('images'), $new_name);
 
-        $car->save();
 
-        return redirect()->route('cars.index')->with('success', 'Car updated successfully.');
+    $form_data = array(
+        'brand' => $request->brand,
+        'model' => $request->model,
+        'year' => $request->year,
+        'color' => $request->color,
+        'seats' => $request->seats,
+        'daily_rate' => $request->daily_rate,
+        'status' => $request->status,
+        'description'  => $request-> description,
+        'image'  =>  $new_name,
+
+    );
+
+
+    $car->update($form_data);
+
+    return redirect()->route('cars.index')
+        ->with('success', 'car updated successfully');
+
     }
 
     public function destroy(Car $car)

@@ -19,7 +19,7 @@
     <input type="number" class="form-control" id="seats" name="seats" value="{{ old('seats', $car->seats ?? '') }}" required>
 </div>
 <div class="form-group">
-    <label for="daily_rate">تقييم يومي</label>
+    <label for="daily_rate">الأجرة اليومية</label>
     <input type="text" class="form-control" id="daily_rate" name="daily_rate" value="{{ old('daily_rate', $car->daily_rate ?? '') }}" required>
 </div>
 <div class="form-group">
@@ -34,7 +34,5 @@
     <label for="description">الوصف </label>
     <textarea class="form-control" id="description" name="description">{{ old('description', $car->description ?? '') }}</textarea>
 </div>
-<div class="form-group">
-    <label for="image">الصورة </label>
-    <input type="file" class="form-control" id="image" name="image">
-</div>
+
+
