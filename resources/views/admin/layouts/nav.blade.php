@@ -80,7 +80,7 @@
     </ul>
   </li>
 
-{{-- Guides --}}
+{{-- garages --}}
 
 
 <li class="nav-item has-treeview">
@@ -93,13 +93,13 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/garages/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>إضافة  كراج </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/garages/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>كل  الكراجات</p>
         </a>

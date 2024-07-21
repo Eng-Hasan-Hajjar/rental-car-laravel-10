@@ -10,12 +10,12 @@ class GarageController extends Controller
     public function index()
     {
         $garages = Garage::all();
-        return view('garages.index', compact('garages'));
+        return view('backend.garages.index', compact('garages'));
     }
 
     public function create()
     {
-        return view('garages.create');
+        return view('backend.garages.create');
     }
 
     public function store(Request $request)
@@ -34,12 +34,12 @@ class GarageController extends Controller
 
     public function show(Garage $garage)
     {
-        return view('garages.show', compact('garage'));
+        return view('backend.garages.show', compact('garage'));
     }
 
     public function edit(Garage $garage)
     {
-        return view('garages.edit', compact('garage'));
+        return view('backend.garages.edit', compact('garage'));
     }
 
     public function update(Request $request, Garage $garage)
