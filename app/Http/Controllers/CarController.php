@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CarController extends Controller
 {
@@ -50,10 +51,6 @@ class CarController extends Controller
             'status' => $request->status,
             'description'  => $request-> description,
             'image'  =>  $new_name,
-
-
-
-
         );
 
 
@@ -112,4 +109,22 @@ class CarController extends Controller
         $car->delete();
         return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');
     }
+
+    public function showCarDetails($id)
+    {
+        $car = Car::find($id);
+        $user = Auth::user();
+
+        // حساب السعر بناءً على مدة تسجيل المستخدم
+        if ($user) {
+            $discountedRate = $car->getDiscountedRate($user);
+        } else {
+            $discountedRate = $car->daily_rate;
+        }
+
+        return view('car.details', compact('car', 'discountedRate'));
+    }
+
+
+
 }

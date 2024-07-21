@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class MaintenanceController extends Controller
 {
-    public function index(Car $car)
+    public function index( )
     {
-        $maintenances = $car->maintenances()->get();
-        return view('backend.maintenances.index', compact('car', 'maintenances'));
+        $maintenances =Maintenance::all();
+        return view('backend.maintenances.index', compact( 'maintenances'));
     }
 
     public function create()
@@ -24,7 +24,6 @@ class MaintenanceController extends Controller
     {
 
         $request->validate([
-
             'car_id' => 'required|integer',
             'date' => 'required|date',
             'details' => 'required|string',
@@ -40,6 +39,10 @@ class MaintenanceController extends Controller
         $maintenance->save();
 
         return redirect()->route('maintenances.index', $car->id)->with('success', 'Maintenance record added successfully.');
+    }
+    public function show(Maintenance $maintenance)
+    {
+        return view('backend.maintenances.show', compact('maintenance'));
     }
 
     public function edit(Car $car, Maintenance $maintenance)

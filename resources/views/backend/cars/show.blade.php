@@ -133,7 +133,7 @@
                         <strong>عدد المقاعد:</strong> {{ $car->seats }}
                     </div>
                     <div class="col-md-6">
-                        <strong>الأجرة اليومية:</strong> ${{ $car->daily_rate }}
+                        <strong>الأجرة اليومية:</strong> ${{ $discountedRate }}
                     </div>
                 </div>
                 <div class="row mb-3">

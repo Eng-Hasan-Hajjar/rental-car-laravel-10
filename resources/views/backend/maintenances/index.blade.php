@@ -13,7 +13,7 @@
 @section('content')
     <div class="container">
         <h1> الصيانات </h1>
-        <a href="{{ route('maintenances.create', $car->id) }}" class="btn btn-primary"> انشاء جديد </a>
+        <a href="{{ route('maintenances.create') }}" class="btn btn-primary"> انشاء جديد </a>
         <table class="table mt-4">
             <thead>
                 <tr>
@@ -30,8 +30,8 @@
                         <td>{{ $maintenance->date }}</td>
                         <td>{{ $maintenance->details }}</td>
                         <td>
-                            <a href="{{ route('maintenances.edit', [$car->id, $maintenance->id]) }}" class="btn btn-warning"> تعديل </a>
-                            <form action="{{ route('maintenances.destroy', [$car->id, $maintenance->id]) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('maintenances.edit', [ $maintenance->id]) }}" class="btn btn-warning"> تعديل </a>
+                            <form action="{{ route('maintenances.destroy', [ $maintenance->id]) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"> حذف </button>
