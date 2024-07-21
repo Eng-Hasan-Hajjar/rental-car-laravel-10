@@ -29,6 +29,7 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('/adminpanel/car', CarController::class);
     Route::resource('/adminpanel/garages', GarageController::class);
+    Route::resource('/adminpanel/maintenances', MaintenanceController::class);
 });
 
 Route::middleware(['auth'])->group(function () {

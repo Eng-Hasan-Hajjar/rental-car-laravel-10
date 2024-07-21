@@ -111,7 +111,7 @@
 
 
 
-{{-- Guides --}}
+{{-- maintenances --}}
 
 
 <li class="nav-item has-treeview">
@@ -124,13 +124,13 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
+        <a href="{{url('/adminpanel/maintenances/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>إضافة  صيانة </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
+        <a href="{{url('/adminpanel/maintenances/')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>كل  الصيانات</p>
         </a>

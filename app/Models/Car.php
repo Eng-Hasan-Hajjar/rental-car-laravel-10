@@ -38,4 +38,20 @@ class Car extends Model
     {
         return $this->hasMany(Maintenance::class);
     }
+
+    // إضافة دالة لحساب السعر بناءً على مدة تسجيل دخول المستخدم
+    public function getDiscountedRate(User $user)
+    {
+        $createdDaysAgo = $user->created_at->diffInDays(now());
+
+        // إذا كان المستخدم قد سجل الدخول منذ أكثر من يومين، احسب الخصم
+        if ($createdDaysAgo > 2) {
+            return $this->daily_rate * 0.9; // خصم 10%
+        }
+
+        return $this->daily_rate;
+    }
+
+
+
 }

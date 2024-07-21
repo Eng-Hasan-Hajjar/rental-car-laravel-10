@@ -1,13 +1,22 @@
-<!-- resources/views/maintenances/create.blade.php -->
-@extends('layouts.app')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
+
+@section('title')
+اضافة صيانة
+@endsection
+
+@section('header')
+    <!-- DataTables -->
+    {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
+    {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
+@endsection
 
 @section('content')
     <div class="container">
-        <h1>Add Maintenance for {{ $car->brand }} {{ $car->model }}</h1>
-        <form action="{{ route('maintenances.store', $car->id) }}" method="POST">
+        <h1>انشاء صيانة  </h1>
+        <form action="{{ route('maintenances.store') }}" method="POST">
             @csrf
-            @include('maintenances.partials.form')
-            <button type="submit" class="btn btn-primary">Save</button>
+            @include('backend.maintenances.partials.form')
+            <button type="submit" class="btn btn-primary">حفظ </button>
         </form>
     </div>
 @endsection

@@ -26,7 +26,7 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('cars.maintenances.index', ['car' => 1])" :active="request()->routeIs('cars.maintenances.index', ['car' => 1])">
+                        <x-nav-link :href="route('maintenances.index')" :active="request()->routeIs('maintenances.index')">
                             {{ __('إدارة صيانة السيارات') }}
                         </x-nav-link>
                     </div>

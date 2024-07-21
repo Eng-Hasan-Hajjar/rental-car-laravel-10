@@ -40,8 +40,11 @@
                         <td>{{ $car->seats }}</td>
                         @if($car->status== "available")
                              <td> متوفرة </td>
-                        @else
+                        @elseif ($car->status== "unavailable")
                              <td>   غير متوفرة</td>
+
+                        @else
+                         <td>   في الصيانة </td>
                         @endif
                         <td>
                             <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">تفاصيل</a>

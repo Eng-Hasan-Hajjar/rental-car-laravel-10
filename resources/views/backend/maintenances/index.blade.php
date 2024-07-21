@@ -1,17 +1,26 @@
-<!-- resources/views/maintenances/index.blade.php -->
-@extends('layouts.app')
+@extends(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin') ? 'admin.layouts.layout' : 'admin.layouts.layoutvisitor')
+
+@section('title')
+التحكم
+@endsection
+
+@section('header')
+    <!-- DataTables -->
+    {{ Html::style('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}
+    {{ Html::style('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}
+@endsection
 
 @section('content')
     <div class="container">
-        <h1>Maintenances for {{ $car->brand }} {{ $car->model }}</h1>
-        <a href="{{ route('maintenances.create', $car->id) }}" class="btn btn-primary">Add New Maintenance</a>
+        <h1> الصيانات </h1>
+        <a href="{{ route('maintenances.create', $car->id) }}" class="btn btn-primary"> انشاء جديد </a>
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Date</th>
-                    <th>Details</th>
-                    <th>Actions</th>
+                    <th>الرقم </th>
+                    <th> التاريخ </th>
+                    <th>التفاصيل </th>
+                    <th> التحكم </th>
                 </tr>
             </thead>
             <tbody>
@@ -21,11 +30,11 @@
                         <td>{{ $maintenance->date }}</td>
                         <td>{{ $maintenance->details }}</td>
                         <td>
-                            <a href="{{ route('maintenances.edit', [$car->id, $maintenance->id]) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('maintenances.edit', [$car->id, $maintenance->id]) }}" class="btn btn-warning"> تعديل </a>
                             <form action="{{ route('maintenances.destroy', [$car->id, $maintenance->id]) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger"> حذف </button>
                             </form>
                         </td>
                     </tr>

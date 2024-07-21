@@ -11,26 +11,31 @@ class MaintenanceController extends Controller
     public function index(Car $car)
     {
         $maintenances = $car->maintenances()->get();
-        return view('maintenances.index', compact('car', 'maintenances'));
+        return view('backend.maintenances.index', compact('car', 'maintenances'));
     }
 
-    public function create(Car $car)
+    public function create()
     {
-        return view('maintenances.create', compact('car'));
+        $cars = Car::where('status', 'in_maintenance')->get();
+        return view('backend.maintenances.create', compact('cars'));
     }
 
     public function store(Request $request, Car $car)
     {
+
         $request->validate([
+
+            'car_id' => 'required|integer',
             'date' => 'required|date',
             'details' => 'required|string',
         ]);
 
         $maintenance = new Maintenance([
-            'car_id' => $car->id,
+            'car_id' => $request->car_id,
             'date' => $request->date,
             'details' => $request->details,
         ]);
+        //dd($maintenance->car_id);
 
         $maintenance->save();
 
@@ -39,7 +44,7 @@ class MaintenanceController extends Controller
 
     public function edit(Car $car, Maintenance $maintenance)
     {
-        return view('maintenances.edit', compact('car', 'maintenance'));
+        return view('backend.maintenances.edit', compact('car', 'maintenance'));
     }
 
     public function update(Request $request, Car $car, Maintenance $maintenance)
