@@ -1,25 +1,28 @@
 {{-- website --}}
 
-
 <li class="nav-item has-treeview">
-  <a href="#" class="nav-link">
-    <i class="nav-icon fas fa-users"></i>
-    <p>
-     الموقع
-      <i class="fas fa-angle-left right"></i>
-    </p>
-  </a>
-  <ul class="nav nav-treeview">
-  <li class="nav-item">
-      <a href="{{url('/')}}" class="nav-link">
-        <i class="far fa-circle nav-icon"></i>
-        <p>الصفحة الرئيسية</p>
-      </a>
-    </li>
+    <a href="#" class="nav-link">
+      <i class="nav-icon fas fa-globe"></i>
+      <p>
+        الموقع
+        <i class="fas fa-angle-left right"></i>
+      </p>
+    </a>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="{{url('/')}}" class="nav-link">
+          <i class="far fa-circle nav-icon"></i>
+          <p>الصفحة الرئيسية</p>
+        </a>
+      </li>
 
 
-  </ul>
-</li>
+    </ul>
+  </li>
+
+
+
+
 
 
 {{-- Customer --}}
@@ -57,7 +60,7 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
+      <i class="nav-icon fas fa-car"></i>
       <p>
          السيارات
         <i class="fas fa-angle-left right"></i>
@@ -85,7 +88,7 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
+      <i class="nav-icon fas fa-cogs"></i>
       <p>
          الكراجات
         <i class="fas fa-angle-left right"></i>
@@ -116,7 +119,7 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
+      <i class="nav-icon fas fa-tools"></i>
       <p>
          الصيانات
         <i class="fas fa-angle-left right"></i>
@@ -145,7 +148,7 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
+      <i class="nav-icon fas fa-calendar-alt"></i>
       <p>
          الحجوزات
         <i class="fas fa-angle-left right"></i>
@@ -174,7 +177,7 @@
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
-      <i class="nav-icon fas fa-users"></i>
+      <i class="nav-icon fas fa-truck"></i>
       <p>
          الأساطيل
         <i class="fas fa-angle-left right"></i>

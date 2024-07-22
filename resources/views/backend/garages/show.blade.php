@@ -50,7 +50,7 @@
                                     <p class="card-text"><strong>العام:</strong> {{ $car->year }}</p>
                                     <p class="card-text"><strong>اللون:</strong> {{ $car->color }}</p>
                                     <p class="card-text"><strong>عدد المقاعد:</strong> {{ $car->seats }}</p>
-                                    <p class="card-text"><strong>تقييم اليومي:</strong>  ل.س {{ $car->daily_rate }}</p>
+                                    <p class="card-text"><strong>الأجرة اليومية :</strong>  {{ $car->daily_rate }}   ل.س  </p>
                                     <p class="card-text"><strong>الحالة:</strong> {{ $car->status }}</p>
                                     <p class="card-text"><strong>الوصف:</strong> {{ $car->description }}</p>
                                 </div>
