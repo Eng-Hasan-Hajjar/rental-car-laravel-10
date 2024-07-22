@@ -32,8 +32,9 @@ class GarageController extends Controller
         return redirect()->route('garages.index')->with('success', 'Garage created successfully.');
     }
 
-    public function show(Garage $garage)
+    public function show( $id)
     {
+        $garage = Garage::with('cars')->findOrFail($id);
         return view('backend.garages.show', compact('garage'));
     }
 

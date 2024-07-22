@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\Garage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,8 @@ class CarController extends Controller
 
     public function create()
     {
-        return view('backend.cars.create');
+        $garages=Garage::all();
+        return view('backend.cars.create',compact('garages'));
     }
 
     public function store(Request $request)
@@ -30,11 +32,9 @@ class CarController extends Controller
             'daily_rate' => 'required|numeric',
             'status' => 'required|string|max:50',
             'description' => 'nullable|string',
+
             'image' => 'nullable|image|max:2048',
         ]);
-
-
-
 
         $image = $request->file('image');
 
@@ -50,9 +50,10 @@ class CarController extends Controller
             'daily_rate' => $request->daily_rate,
             'status' => $request->status,
             'description'  => $request-> description,
+            'garage_id' => $request-> garage_id,
             'image'  =>  $new_name,
         );
-
+       // dd($form_data);
 
         Car::create($form_data);
 
@@ -72,13 +73,16 @@ class CarController extends Controller
         } else {
             $discountedRate = $car->daily_rate;
         }
-        return view('backend.cars.show', compact('car', 'discountedRate'));
+
+        $garages=Garage::all();
+        return view('backend.cars.show', compact('car', 'discountedRate','garages'));
     }
 
     public function edit(Car $car)
     {
         $id=$car->id;
-        return view('backend.cars.edit', compact('car','id'));
+        $garages=Garage::all();
+        return view('backend.cars.edit', compact('car','id','garages'));
     }
 
     public function update(Request $request, Car $car)
@@ -101,6 +105,7 @@ class CarController extends Controller
         'daily_rate' => $request->daily_rate,
         'status' => $request->status,
         'description'  => $request-> description,
+        'garage_id' => $request-> garage_id,
         'image'  =>  $new_name,
 
     );

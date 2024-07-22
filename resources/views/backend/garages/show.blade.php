@@ -14,8 +14,11 @@
 @section('content')
 <div class="container mt-5" style="align-items: center;text-align:center; direction:rtl">
     <div class="card"style=" text-align: center;">
-        <div class="card-header bg-primary text-white" style=" text-align: center;">
-            <h1 class="card-title card-text"style=" text-align: center;">التفاصيل</h1>
+        <div class="card-header bg-primary text-white" style="">
+
+            <h6 class=" "style=" text-align: center;">التفاصيل</h1>
+
+
         </div>
         <div class="card-body">
             <div class="mb-3">
@@ -30,6 +33,34 @@
             <div class="mb-3">
                 <strong>ساعات العمل :</strong> <span class="card-text">{{ $garage->working_hours }}</span>
             </div>
+
+            <div class="mb-3">
+                <hr>
+                <h4 class="text-center"> السيارات المتوفرة في الكراج </h6>
+                <div class="row">
+                    @foreach($garage->cars as $car)
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                @if ($car->image)
+                                    <img class="card-img-top img-thumbnail" src="{{ URL::to('/') }}/images/{{ $car->image }}"
+                                     alt="{{ $car->model }}" style="width: 300px; height: 200px;">
+                                @endif
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $car->brand }} - {{ $car->model }}</h5>
+                                    <p class="card-text"><strong>العام:</strong> {{ $car->year }}</p>
+                                    <p class="card-text"><strong>اللون:</strong> {{ $car->color }}</p>
+                                    <p class="card-text"><strong>عدد المقاعد:</strong> {{ $car->seats }}</p>
+                                    <p class="card-text"><strong>تقييم اليومي:</strong>  ل.س {{ $car->daily_rate }}</p>
+                                    <p class="card-text"><strong>الحالة:</strong> {{ $car->status }}</p>
+                                    <p class="card-text"><strong>الوصف:</strong> {{ $car->description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <a href="{{ url('/adminpanel/garages') }}" class="btn btn-secondary" >  الكراجات  </a>
         </div>
     </div>
 </div>

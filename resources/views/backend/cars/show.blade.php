@@ -130,6 +130,12 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-6">
+                        <strong>الكراج:</strong> {{ $car->garage ? $car->garage ->name : 'غير محدد'}}
+                    </div>
+
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
                         <strong>عدد المقاعد:</strong> {{ $car->seats }}
                     </div>
                     <div class="col-md-6">
