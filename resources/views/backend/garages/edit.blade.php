@@ -11,12 +11,12 @@
 @endsection
 @section('content')
     <div class="container">
-        <h1>Edit Garage</h1>
+        <h1> التعديل  </h1>
         <form action="{{ route('garages.update', $garage->id) }}" method="POST">
             @csrf
             @method('PUT')
             @include('backend.garages.partials.form')
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary"> تحديث </button>
         </form>
     </div>
 @endsection

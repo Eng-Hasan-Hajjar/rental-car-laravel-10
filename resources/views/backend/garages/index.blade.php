@@ -12,17 +12,17 @@
 
 @section('content')
     <div class="container">
-        <h1>Garages</h1>
-        <a href="{{ route('garages.create') }}" class="btn btn-primary">Add New Garage</a>
+        <h1> الكراجات </h1>
+        <a href="{{ route('garages.create') }}" class="btn btn-primary"> إنشاء جديد </a>
         <table class="table mt-4">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Phone Number</th>
-                    <th>Working Hours</th>
-                    <th>Actions</th>
+                    <th> الرقم </th>
+                    <th> الاسم </th>
+                    <th> الموقع </th>
+                    <th> رقم الهاتف </th>
+                    <th> ساعات العمل </th>
+                    <th> التحكم </th>
                 </tr>
             </thead>
             <tbody>
@@ -34,12 +34,12 @@
                         <td>{{ $garage->phone_number }}</td>
                         <td>{{ $garage->working_hours }}</td>
                         <td>
-                            <a href="{{ route('garages.show', $garage->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('garages.edit', $garage->id) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('garages.show', $garage->id) }}" class="btn btn-info"> التفاصيل </a>
+                            <a href="{{ route('garages.edit', $garage->id) }}" class="btn btn-warning">  التعديل </a>
                             <form action="{{ route('garages.destroy', $garage->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من عملية الحذف؟');"> حذف </button>
                             </form>
                         </td>
                     </tr>

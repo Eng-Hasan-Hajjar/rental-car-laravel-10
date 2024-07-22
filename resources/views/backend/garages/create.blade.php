@@ -12,11 +12,11 @@
 
 @section('content')
     <div class="container">
-        <h1>Add New Garage</h1>
+        <h1>   اضافة جديد   </h1>
         <form action="{{ route('garages.store') }}" method="POST">
             @csrf
             @include('backend.garages.partials.form')
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary">  حفظ </button>
         </form>
     </div>
 @endsection
