@@ -16,7 +16,7 @@ class CustomerController extends Controller
     {
 
         $user = auth()->user();
-        $visitors = Customer::latest()->paginate(5);
+        $customers = Customer::latest()->paginate(5);
         $users = User::latest()->paginate(5);
         return view('backend.customers.index',compact('customers','users'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -39,9 +39,6 @@ class CustomerController extends Controller
             'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
-
-
-
         ];
 
         $request->validate([
@@ -52,16 +49,7 @@ class CustomerController extends Controller
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
-            'num_companion'=> 'required',
-            'is_phobia_hights'=> 'required',
-            'is_phobia_dark'=> 'required',
-            'is_phobia_animals'=> 'required',
-            'is_phobia_fly' => 'required',
-            'is_phobia_see'=>  'required',
-            'is_phobia_open_space'=> 'required',
-
             'birthday'=> 'required',
-
 
         ], $messages);
 
@@ -135,13 +123,7 @@ class CustomerController extends Controller
             'nationality.required' => 'حقل الجنسية مطلوب',
             'current_location.required' => 'حقل الموقع الحالي مطلوب',
             'gender.required' => 'حقل الجنس مطلوب',
-            'num_companion.required' => 'حقل عدد المرافقين مطلوب',
-            'is_phobia_dark.required' => 'حقل فوبيا الظلام مطلوب',
-            'is_phobia_animals.required' => 'حقل فوبيا الحيوانات مطلوب',
-            'is_phobia_fly.required' => 'حقل فوبيا الطيران مطلوب',
-            'is_phobia_see.required' => 'حقل فوبيا الرؤية مطلوب',
-            'is_phobia_open_space.required' => 'حقل فوبيا الأماكن المفتوحة مطلوب',
-            'is_phobia_hights.required' => 'حقل فوبيا المرتفعات مطلوب',
+
             'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
 
 
@@ -155,13 +137,7 @@ class CustomerController extends Controller
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
-            'num_companion'=> 'required',
-            'is_phobia_dark'=> 'required',
-            'is_phobia_animals'=> 'required',
-            'is_phobia_fly' => 'required',
-            'is_phobia_see'=>  'required',
-            'is_phobia_open_space'=> 'required',
-            'is_phobia_hights'=> 'required',
+
             'birthday'=> 'required',
 
 
@@ -195,7 +171,6 @@ class CustomerController extends Controller
 
     public function input()
     {
-        //  إضافة كود لإعداد واجهة إدخال بيانات المريض هنا
         return view('backend.customers.input');
     }
 
