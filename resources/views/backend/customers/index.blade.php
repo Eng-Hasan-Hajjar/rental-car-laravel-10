@@ -45,12 +45,11 @@
                             <tr>
                                 <td>
                                     @foreach ($users as $user)
-                                        @if($user->id == $visitor->user_id)  {{ $user->name }} @endif
+                                        @if($user->id == $customer->user_id)  {{ $user->name }} @endif
                                     @endforeach
                                 </td>
                                 <td>{{ $customer->phone }}</td>
                                 <td>{{ $customer->work }}</td>
-
                                 <td>{{ $customer->current_location }}</td>
 
                                 <td>

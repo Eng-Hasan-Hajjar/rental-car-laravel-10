@@ -21,29 +21,28 @@
             <div class="card-body hcard-body">
                 <table>
                     <tr>
-                        <td>
+                    <td>
                             <p><strong> الاسم:</strong>
                                 {{ Auth::user()->name }}
                            </p>
                     </td>
-                        <td>
+                    <td>
                             <p><strong> الهاتف:</strong> {{ $customer->phone}}</p>
                     </td>
 
                     </tr>
                     <tr>
-                        <td>
+                    <td>
 
                              <p><strong> العمل:</strong> {{  $customer->work}}</p>
                     </td>
-                        <td>
+                    <td>
 
-                <p><strong> الهواية:</strong> {{ $customer->hobby}}</p>
                     </td>
 
                     </tr>
                     <tr>
-                        <td>
+                    <td>
                             <p><strong> الجنسية:</strong> {{ $customer->nationality}}</p>
                     </td>
                         <td>
@@ -57,51 +56,16 @@
                             <p><strong> الجنس:</strong>   @if($customer->gender == 0) ذكر @else أنثى @endif</p>
                     </td>
                         <td>
-                            <p><strong> عدد المرافقين:</strong> {{ $customer->num_companion}}</p>
                     </td>
 
                     </tr>
                     <tr>
-                        <td>
-                            <p><strong> فوبيا الظلام:</strong> @if($customer->is_phobia_dark == 0) لايوجد @else يوجد @endif</p>
 
-                    </td>
-                        <td>
-                            <p><strong> فوبيا الحيوانات:</strong>  @if($customer->is_phobia_animals == 0) لايوجد @else يوجد @endif</p>
-
-                    </td>
-
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <p><strong> فوبيا الطيران:</strong>   @if($customer->is_phobia_fly == 0) لايوجد @else يوجد @endif</p>
-
-                    </td>
-                        <td>
-                            <p><strong> فوبيا البحر:</strong>  @if($customer->is_phobia_see == 0) لايوجد @else يوجد @endif</p>
-
-                    </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p><strong> فوبيا الأماكن المفتوحة:</strong> @if($customer->is_phobia_open_space == 0) لايوجد @else يوجد @endif</p>
-
-                    </td>
-                        <td>
-                            <p><strong> فوبيا المرتفعات:</strong>  @if($customer->is_phobia_hights == 0) لايوجد @else يوجد @endif</p>
-
-                        </td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>
-
-                        </td>
                         <td>
                             <p><strong> تاريخ الميلاد:</strong> {{ $customer->birthday }}</p>
+
+                        </td>
+                        <td>
 
                         </td>
 

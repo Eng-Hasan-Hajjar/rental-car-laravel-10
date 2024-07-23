@@ -19,7 +19,7 @@
             <div class="card-header">تعديل </div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('customers.update', $visitor) }}">
+                <form method="POST" action="{{ route('customers.update', $customer) }}">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group">
                         <label for="birthday">الميلاد  </label>
-                        <input type="date" name="birthday" class="form-control" id="birthday" value="{{$visitor->birthday  }}">
+                        <input type="date" name="birthday" class="form-control" id="birthday" value="{{$customer->birthday  }}">
                     </div>
                     <button type="submit" class="btn btn-primary">حفظ </button>
                     <!-- زر الرجوع -->

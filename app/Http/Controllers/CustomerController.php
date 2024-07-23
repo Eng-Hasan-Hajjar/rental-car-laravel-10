@@ -14,14 +14,12 @@ class CustomerController extends Controller
      */
     public function index()
     {
-
         $user = auth()->user();
         $customers = Customer::latest()->paginate(5);
         $users = User::latest()->paginate(5);
         return view('backend.customers.index',compact('customers','users'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -29,7 +27,6 @@ class CustomerController extends Controller
     {
         return view('backend.customers.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
@@ -40,42 +37,30 @@ class CustomerController extends Controller
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
         ];
-
         $request->validate([
-
             'phone'=> 'required|numeric',
             'work'=>  'required',
-            'hobby'=> 'required',
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
             'birthday'=> 'required',
-
         ], $messages);
-
-          // الحصول على المستخدم المسجل
+        // الحصول على المستخدم المسجل
         $user = auth()->user();
         $customer = new Customer($request->all());
         $user->customer()->save($customer);
-          // التحقق من وجود المستخدم
-        if ($user) {
+        // التحقق من وجود المستخدم
+        if ($user &&  $user->role == 'customer') {
             $customer = $user->customer;
-
             return view('backend.customers.showyou', compact('customer','user'));
         }
-
-     //   dd($visitor);
-
-
-         //  Visitor::create($request->all());
         return redirect()->route('customers.index')
-                        ->with('success','visitor created successfully.');
+                        ->with('success','customer created successfully.');
     }
-
     /**
      * Display the specified resource.
      */
-    public function show(Customer $visitor)
+    public function show(Customer $customer)
     {
         $user = auth()->user();
         $users = User::all();
@@ -84,19 +69,17 @@ class CustomerController extends Controller
 
     public function showCustomerByUserId($userId)
     {
-       // dd($userId);
         $customer = Customer::where('user_id', $userId)->first();
-       // dd($visitor);
-    if (!$customer) {
-        return redirect()->route('customers.input')->with('error', 'لم يتم العثور على معلومات الزائر، يرجى استكمال البيانات.');
-    }
-        return view('backend.customers.showyou', compact('visitor'));
+        if (!$customer) {
+            return redirect()->route('customers.input')->with('error', 'لم يتم العثور على معلومات الزائر، يرجى استكمال البيانات.');
+        }
+        return view('backend.customers.showyou', compact('customer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Customer $visitor)
+    public function edit(Customer $customer)
     {
         return view('backend.customers.edit',compact('customer'));
     }
@@ -110,37 +93,23 @@ class CustomerController extends Controller
     public function update(Request $request, Customer $customer)
     {
         $messages = [
-            'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
-            'is_free.required' => 'حقل نوع الحالة مطلوب',
-
             'specialty.required' => 'حقل الاختصاص  مطلوب',
-            'phone.required' => 'حقل رقم الهاتف مطلوب',
-            'phone.numeric' => 'هاتف المستخدم غير صالح',
             'work.required' => 'حقل العمل مطلوب',
-            'hobby.required' => 'حقل الهواية مطلوب',
             'nationality.required' => 'حقل الجنسية مطلوب',
             'current_location.required' => 'حقل الموقع الحالي مطلوب',
             'gender.required' => 'حقل الجنس مطلوب',
-
             'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
-
-
         ];
 
         $request->validate([
-
             'phone'=> 'required|numeric',
             'work'=>  'required',
-            'hobby'=> 'required',
             'nationality'=> 'required',
             'current_location' => 'required',
             'gender'=>  'required',
-
             'birthday'=> 'required',
-
-
         ], $messages);
 
         $customer->update($request->all());
@@ -149,16 +118,9 @@ class CustomerController extends Controller
             return redirect()->route('dashboard')
                              ->with('success', 'تم تحديث معلوماتك  بنجاح');
         }
-
-
         return redirect()->route('customers.index')
-                        ->with('success','customer updated successfully');
+                        ->with('success','تم تحديث معلوماتك  بنجاح');
     }
-
-
-
-
-
     /**
      * Remove the specified resource from storage.
      */
@@ -173,7 +135,33 @@ class CustomerController extends Controller
     {
         return view('backend.customers.input');
     }
-
+    public function input2(Request $request)
+    {
+        $messages = [
+            'name.required' => 'حقل  الاسم مطلوب',
+            'phone.required' => 'حقل رقم الهاتف مطلوب',
+            'phone.numeric' => 'هاتف المستخدم غير صالح',
+        ];
+        $request->validate([
+            'phone'=> 'required|numeric',
+            'work'=>  'required',
+            'nationality'=> 'required',
+            'current_location' => 'required',
+            'gender'=>  'required',
+            'birthday'=> 'required',
+        ], $messages);
+          // الحصول على المستخدم المسجل
+        $user = auth()->user();
+        $customer = new Customer($request->all());
+        $user->customer()->save($customer);
+          // التحقق من وجود المستخدم
+        if ($user) {
+            $customer = $user->customer;
+            return view('backend.customers.showyou', compact('customer','user'));
+        }
+        return redirect()->route('customers.index')
+                        ->with('success','تم التحديث بنجاح ');
+    }
 
 
 }

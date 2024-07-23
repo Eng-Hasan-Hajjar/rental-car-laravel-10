@@ -67,9 +67,13 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::resource('/adminpanel/customers', CustomerController::class);
-    Route::post('/adminpanel/customers', [CustomerController::class, 'input'])->name('visitors.input');
-    Route::get('/adminpanel/customers', [CustomerController::class, 'input'])->name('visitors.input');
-    Route::get('/customers/user/{userId}', [CustomerController::class, 'showVisitorByUserId'])->name('visitors.showByUserId');
+    Route::post('/adminpanel/customers2', [CustomerController::class, 'input'])->name('customers2.input');
+    Route::get('/adminpanel/customers2', [CustomerController::class, 'input'])->name('customers2.input');
+    Route::post('/adminpanel/customers2', [CustomerController::class, 'input2'])->name('customers2.input2');
+
+
+    Route::get('/customers/user/{userId}', [CustomerController::class, 'showCustomerByUserId'])->name('customers.showByUserId');
+
 });
 
 

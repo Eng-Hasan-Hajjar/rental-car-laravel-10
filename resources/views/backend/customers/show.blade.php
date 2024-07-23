@@ -21,21 +21,13 @@
             <div class="card-body hcard-body">
                 <!-- تفاصيل  -->
                 <p><strong> الاسم:</strong>  @foreach ($users as $user)
-                    @if($user->id == $visitor->user_id)  {{ $user->name }} @endif
+                    @if($user->id == $customer->user_id)  {{ $user->name }} @endif
                 @endforeach</p>
                 <p><strong> الهاتف:</strong> {{ $customer->phone}}</p>
                 <p><strong> العمل:</strong> {{  $customer->work}}</p>
-                <p><strong> الهواية:</strong> {{ $customer->hobby}}</p>
                 <p><strong> الجنسية:</strong> {{ $customer->nationality}}</p>
                 <p><strong> الموقع الحالي:</strong> {{ $customer->current_location}}</p>
                 <p><strong> الجنس:</strong>   @if($customer->gender == 0) ذكر @else أنثى @endif</p>
-                <p><strong> عدد المرافقين:</strong> {{ $customer->num_companion}}</p>
-                <p><strong> فوبيا الظلام:</strong> @if($customer->is_phobia_dark == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الحيوانات:</strong>  @if($customer->is_phobia_animals == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الطيران:</strong>   @if($customer->is_phobia_fly == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا البحر:</strong>  @if($customer->is_phobia_see == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا الأماكن المفتوحة:</strong> @if($customer->is_phobia_open_space == 0) لايوجد @else يوجد @endif</p>
-                <p><strong> فوبيا المرتفعات:</strong>  @if($customer->is_phobia_hights == 0) لايوجد @else يوجد @endif</p>
                 <p><strong> تاريخ الميلاد:</strong> {{ $customer->birthday }}</p>
 
                 <div class="btn-group">
