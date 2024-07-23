@@ -43,13 +43,20 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function customer(): HasOne
+    {
+        return $this->hasOne(Customer::class);
+    }
+
+
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
     public function visitor(): HasOne
     {
         return $this->hasOne(Visitor::class);
     }
-    // app/Models/User.php
-public function ratings()
-{
-    return $this->hasMany(Rating::class);
-}
+
 }

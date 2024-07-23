@@ -14,6 +14,7 @@ use App\Http\Controllers\RatingController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarReservationController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FleetController;
 use App\Http\Controllers\GarageController;
 use App\Http\Controllers\MaintenanceController;
@@ -62,6 +63,13 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboardcar', [AdminDashboardCarController::class, 'index'])->name('dashboardcar');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::resource('/adminpanel/customers', CustomerController::class);
+    Route::post('/adminpanel/customers', [CustomerController::class, 'input'])->name('visitors.input');
+    Route::get('/adminpanel/customers', [CustomerController::class, 'input'])->name('visitors.input');
+    Route::get('/customers/user/{userId}', [CustomerController::class, 'showVisitorByUserId'])->name('visitors.showByUserId');
 });
 
 
