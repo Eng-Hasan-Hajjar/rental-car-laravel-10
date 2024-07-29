@@ -48,6 +48,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+  //  Route::get('reservations', [CarReservationController::class, 'index'])->name('reservations.index');
+
     Route::get('reservations', [CarReservationController::class, 'index'])->name('reservations.index');
     Route::get('cars/{car}/reservations/create', [CarReservationController::class, 'create'])->name('reservations.create');
     Route::post('cars/{car}/reservations', [CarReservationController::class, 'store'])->name('reservations.store');
@@ -171,7 +173,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::resource('/adminpanel/reservations', ReservationController::class);
+ //   Route::resource('/adminpanel/reservations', ReservationController::class);
 
 });
 

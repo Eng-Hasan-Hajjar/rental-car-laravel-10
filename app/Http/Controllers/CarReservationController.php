@@ -12,12 +12,12 @@ class CarReservationController extends Controller
     public function index()
     {
         $reservations = CarReservation::with('car')->where('user_id', Auth::id())->get();
-        return view('reservations.index', compact('reservations'));
+        return view('backend.car_reservation.index', compact('reservations'));
     }
 
     public function create(Car $car)
     {
-        return view('reservations.create', compact('car'));
+        return view('backend.car_reservation.create', compact('car'));
     }
 
     public function store(Request $request, Car $car)
@@ -42,16 +42,16 @@ class CarReservationController extends Controller
 
     public function show(CarReservation $reservation)
     {
-        $this->authorize('view', $reservation);
+       $this->authorize('view', $reservation);
 
-        return view('reservations.show', compact('reservation'));
+        return view('backend.car_reservation.show', compact('reservation'));
     }
 
     public function edit(CarReservation $reservation)
     {
         $this->authorize('update', $reservation);
 
-        return view('reservations.edit', compact('reservation'));
+        return view('backend.car_reservation.edit', compact('reservation'));
     }
 
     public function update(Request $request, CarReservation $reservation)
@@ -71,7 +71,7 @@ class CarReservationController extends Controller
 
     public function destroy(CarReservation $reservation)
     {
-        $this->authorize('delete', $reservation);
+       $this->authorize('delete', $reservation);
 
         $reservation->delete();
 

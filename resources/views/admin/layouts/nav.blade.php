@@ -156,13 +156,13 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/create')}}" class="nav-link">
+        <a href="{{url('/reservations/create')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>إضافة  حجز </p>
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{url('/adminpanel/cars/')}}" class="nav-link">
+        <a href="{{url('/reservations')}}" class="nav-link">
           <i class="far fa-circle nav-icon"></i>
           <p>كل  الحجوزات</p>
         </a>

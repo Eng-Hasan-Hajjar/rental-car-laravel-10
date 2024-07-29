@@ -46,7 +46,11 @@
                         @else
                          <td>   في الصيانة </td>
                         @endif
+                       
                         <td>
+
+                            <a href="{{ route('reservations.create', $car->id) }}" class="btn btn-primary">حجز الآن</a>
+
                             <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">تفاصيل</a>
                             <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">تحرير</a>
                             <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline-block;">
