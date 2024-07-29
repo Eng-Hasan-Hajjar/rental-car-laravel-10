@@ -11,7 +11,7 @@ class Rating extends Model
 
     protected $fillable = [
         'user_id',
-        'camp_ground_id',
+        'car_id',
         'rating',
         'comment',
     ];
@@ -21,8 +21,8 @@ class Rating extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function campGround()
+    public function car()
     {
-        return $this->belongsTo(CampGround::class);
+        return $this->belongsTo(Car::class);
     }
 }
