@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('guides', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name');
-            $table->Integer('phone');
-            $table->boolean('is_free');
-
+            $table->string('image');
+            $table->unsignedBiginteger('car_id');
             $table->timestamps();
+
+            $table->foreign('car_id')->references('id')->on('cars');
+
+
         });
+
     }
 
     /**
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('guides');
+        Schema::dropIfExists('images');
     }
 };

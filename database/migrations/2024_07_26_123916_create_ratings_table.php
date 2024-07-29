@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('camp_ground_id');
+            $table->unsignedBigInteger('car_id');
             $table->integer('rating')->default(0);
             $table->text('comment')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('camp_ground_id')->references('id')->on('camp_grounds')->onDelete('cascade');
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
         });
     }
 
