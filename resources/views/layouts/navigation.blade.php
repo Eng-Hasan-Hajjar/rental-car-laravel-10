@@ -45,33 +45,9 @@
 
 
                 @else
+
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('campground.index')" :active="request()->routeIs('campground.index')">
-                            {{ __('أماكن التخييم') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('reservations.index')" :active="request()->routeIs('reservations.index')">
-                            {{ __('الحجوزات') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('doctors.index')" :active="request()->routeIs('doctors.index')">
-                            {{ __('الأطباء') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('guides.index')" :active="request()->routeIs('guides.index')">
-                            {{ __('الأدلة') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('visitors.index')" :active="request()->routeIs('visitors.index')">
-                            {{ __('الزائرين') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('visitors.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('visitors.showByUserId', ['userId' => Auth::user()->id])">
+                        <x-nav-link :href="route('customers.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('customers.showByUserId', ['userId' => Auth::user()->id])">
                             {{ __(' معلوماتي ') }}
                         </x-nav-link>
                     </div>

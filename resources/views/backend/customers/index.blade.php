@@ -25,18 +25,8 @@
                         <tr>
                             <th> الاسم</th>
                             <th> الهاتف</th>
-
                             <th> العمل</th>
-
-
                             <th> الموقع الحالي</th>
-
-
-
-
-
-
-
                             <th>التحكم</th>
                         </tr>
                     </thead>
@@ -57,8 +47,6 @@
                                         <a style="" href="{{ route('customers.show', $customer) }}" class="btn btn-info"> التفاصيل</a>
 
                                         <a style="" href="{{ route('customers.edit', $customer) }}" class="btn btn-primary">تعديل</a>
-
-
                                         <form action="{{ route('customers.destroy', $customer) }}" method="POST">
                                             @csrf
                                             @method('DELETE')

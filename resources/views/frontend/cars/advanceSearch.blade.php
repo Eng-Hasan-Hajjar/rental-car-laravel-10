@@ -1,6 +1,6 @@
 <div class="col-md-4" >
             <div class="profile-sidebar dis2">
-              <h2 style="margin:10px;color:#fff"> Advanced search </h2>
+              <h2 style="margin:10px;color:#fff"> بحث متقدم </h2>
                   <div class="profile-usermenu" >
                     {!! Form::open(['url'=>'search','action'=>'post'])!!}
                    {{ csrf_field() }}

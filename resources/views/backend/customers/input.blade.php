@@ -32,7 +32,7 @@
 
 
 
-                        <form method="POST" action="{{ route('customers.input') }}">
+                        <form method="POST" action="{{ route('customers2.input') }}">
                             @csrf
                             <table>
                                 <tr>

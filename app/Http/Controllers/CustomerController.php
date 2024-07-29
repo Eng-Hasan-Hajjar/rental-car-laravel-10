@@ -71,7 +71,7 @@ class CustomerController extends Controller
     {
         $customer = Customer::where('user_id', $userId)->first();
         if (!$customer) {
-            return redirect()->route('customers.input')->with('error', 'لم يتم العثور على معلومات الزائر، يرجى استكمال البيانات.');
+            return redirect()->route('customers2.input')->with('error', 'لم يتم العثور على معلومات الزائر، يرجى استكمال البيانات.');
         }
         return view('backend.customers.showyou', compact('customer'));
     }

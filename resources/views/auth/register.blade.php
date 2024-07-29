@@ -44,11 +44,14 @@
                 <label for="role" class="col-md-4 col-form-label text-md-right">{{ __(' الوظيفة ') }}</label>
 
                 <div class="col-md-6">
-                    <select id="role" class="form-control" name="role" required>
-                        <option value="customer"> زبون</option>
+                    <select id="role" class="form-control" name="role" required disabled>
+                        <option value="customer" selected> زبون</option>
                         <option value="employee"> موظف </option>
                     </select>
+                      <!-- حقل مخفي لضمان أن القيمة المرسلة دائمًا تكون "customer" -->
+                     <input type="hidden" name="role" value="customer">
                 </div>
+
          </div>
 
 
