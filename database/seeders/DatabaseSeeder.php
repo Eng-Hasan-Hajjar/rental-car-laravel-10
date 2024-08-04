@@ -40,89 +40,7 @@ class DatabaseSeeder extends Seeder
             'password'=>'123456789',
           ]);
 
-          \App\Models\Doctor::create([
-            'name' => 'Test Doctor ',
-            'phone' => '0933912076',
-            'is_free'=>'0',
-            'specialty'=>'قلبية',
-          ]);
-          \App\Models\Doctor::create([
-            'name' => 'Test Doctor 2',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-            'specialty'=>'داخلية',
-          ]);
 
-          \App\Models\Doctor::create([
-            'name' => 'Test Doctor 3',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-            'specialty'=>'جراحة عامة',
-          ]);
-          \App\Models\Doctor::create([
-            'name' => 'Test Doctor 4',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-            'specialty'=>'داخلية',
-          ]);
-          \App\Models\Guide::create([
-            'name' => 'Test Guid 1',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-
-          ]);
-          \App\Models\Guide::create([
-            'name' => 'Test Guid 2',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-
-          ]);
-          \App\Models\Guide::create([
-            'name' => 'Test Guid 3',
-            'phone' => '0933912076',
-            'is_free'=>'1',
-
-          ]);
-
-          \App\Models\CampGround::create([
-            'name' => 'بادية الشام',
-            'description' => 'من أجمل الأماكن ',
-            'country'=>'سوريا',
-            'city' => 'تدمر',
-            'region' => 'البادية',
-            'cm_type'=>'1',
-            'cm_season' => '1',
-            'campGround_image' => '',
-            'google_image'=>'',
-            'forecast' => 'غائم جزئي',
-
-          ]);
-          \App\Models\CampGround::create([
-            'name' => 'بادية سيناء',
-            'description' => 'من أجمل الأماكن ',
-            'country'=>'مصر',
-            'city' => 'سيناء',
-            'region' => 'العريش',
-            'cm_type'=>'1',
-            'cm_season' => '1',
-            'campGround_image' => '',
-            'google_image'=>'',
-            'forecast' => 'غائم جزئي',
-
-          ]);
-          \App\Models\CampGround::create([
-            'name' => 'غابات الأمازون',
-            'description' => 'من أجمل الأماكن ',
-            'country'=>'البرازيل',
-            'city' => 'سامباولو',
-            'region' => 'سامبو',
-            'cm_type'=>'2',
-            'cm_season' => '1',
-            'campGround_image' => '',
-            'google_image'=>'',
-            'forecast' => 'غائم جزئي',
-
-          ]);
 
           \App\Models\Car::create([
                 'brand' => "bmw",
@@ -143,16 +61,7 @@ class DatabaseSeeder extends Seeder
             'description' => '',
 
           ]);
-          \App\Models\Reservation::create([
-
-            'user_id' => '1',
-            'car_id' => '1',
-            'start_date' => '',
-            'end_date' => '',
-            'status' => '',
-
-
-          ]);
+         
           \App\Models\Rating::create([
             'user_id' => '1',
             'car_id' => '1',

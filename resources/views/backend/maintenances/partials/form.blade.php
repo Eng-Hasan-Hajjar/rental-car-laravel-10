@@ -10,7 +10,7 @@
 </div>
 
 <div class="form-group">
-    <label for="date"> التاريخ</label>
+    <label for="date"> تاريخ انتهاء الصيانة المتوقع :</label>
     <input type="date" class="form-control" id="date" name="date" value="{{ old('date', $maintenance->date ?? '') }}" required>
 </div>
 <div class="form-group">

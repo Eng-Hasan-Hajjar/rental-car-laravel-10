@@ -29,7 +29,7 @@ class GarageController extends Controller
 
         Garage::create($request->all());
 
-        return redirect()->route('garages.index')->with('success', 'Garage created successfully.');
+        return redirect()->route('garages.index')->with('success', 'تم الإنشاء بنجاح ');
     }
 
     public function show( $id)

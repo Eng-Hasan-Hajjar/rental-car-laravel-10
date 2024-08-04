@@ -11,18 +11,25 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\FleetController;
 use App\Http\Controllers\GarageController;
 use App\Http\Controllers\MaintenanceController;
-use Symfony\Component\Console\Input\Input;
-
-
 Route::get('/', function () {
     return view('frontend.index');
 });
+
+
+
+Route::get('ratings', [RatingController::class, 'index'])->name('ratings.index');
+Route::post('/ratings', [RatingController::class, 'store'])->name('ratings.store');
+Route::get('/cars/{camp_ground_id}/ratings', [RatingController::class, 'show'])->name('ratings.show');
+Route::get('/cars/{id}/ratings', [CarController::class, 'showRatings'])->name('car.ratings');
+
+
+
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('/adminpanel/car', CarController::class);
     Route::resource('/adminpanel/garages', GarageController::class);
     Route::resource('/adminpanel/maintenances', MaintenanceController::class);
 });
-
 Route::middleware(['auth'])->group(function () {
     Route::resource('cars', CarController::class);
 
@@ -36,7 +43,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('maintenances/{maintenance}', [MaintenanceController::class, 'destroy'])->name('cars.maintenances.destroy');
     });
 });
-
 Route::middleware(['auth'])->group(function () {
     Route::get('reservations', [CarReservationController::class, 'index'])->name('reservations.index');
     Route::get('cars/{car}/reservations/create', [CarReservationController::class, 'create'])->name('reservations.create');
@@ -46,15 +52,15 @@ Route::middleware(['auth'])->group(function () {
     Route::put('reservations/{reservation}', [CarReservationController::class, 'update'])->name('reservations.update');
     Route::delete('reservations/{reservation}', [CarReservationController::class, 'destroy'])->name('reservations.destroy');
 });
-
 Route::middleware(['auth'])->group(function () {
     Route::resource('fleets', FleetController::class);
 });
-
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboardcar', [AdminDashboardCarController::class, 'index'])->name('dashboardcar');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 });
-
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboardcar', [AdminDashboardController::class, 'index'])->name('dashboardcar');
+});
 Route::middleware('auth')->group(function () {
     Route::resource('/adminpanel/customers', CustomerController::class);
     Route::post('/adminpanel/customers2', [CustomerController::class, 'input'])->name('customers2.input');
@@ -63,10 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/customers/user/{userId}', [CustomerController::class, 'showCustomerByUserId'])->name('customers.showByUserId');
 
 });
-
-
-
-
 Route::get('/n', function () {
     return view('welcome');
 });

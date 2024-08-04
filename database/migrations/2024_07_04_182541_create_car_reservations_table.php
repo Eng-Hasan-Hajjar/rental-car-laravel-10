@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('car_id');
             $table->date('start_date');
             $table->date('end_date');
-            $table->enum('status', ['pending', 'confirmed', 'cancelled'])->default('pending');
+            $table->enum('status', ['معلق', 'مثبت', 'إلغاء'])->default('معلق');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');

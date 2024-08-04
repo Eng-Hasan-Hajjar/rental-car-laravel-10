@@ -24,7 +24,7 @@
                     <a href="{{ route('cars.create') }}" class="btn btn-success">إضافة سيارة جديدة</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ route('reservations.create') }}" class="btn btn-danger">إضافة حجز جديد</a>
+                    <a href="{{ route('reservations.create', ['car' => 1]) }}" class="btn btn-danger">إضافة حجز جديد</a>
                 </div>
                 <div class="col-md-3">
                     <a href="{{ route('cars.maintenances.create', ['car' => 1]) }}" class="btn btn-warning">إضافة صيانة جديدة</a> <!-- يجب تمرير معرف السيارة المناسب -->

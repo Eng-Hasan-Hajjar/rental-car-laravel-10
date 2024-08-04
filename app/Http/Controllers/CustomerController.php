@@ -32,10 +32,17 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        
         $messages = [
             'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'specialty.required' => 'حقل الاختصاص  مطلوب',
+            'work.required' => 'حقل العمل مطلوب',
+            'nationality.required' => 'حقل الجنسية مطلوب',
+            'current_location.required' => 'حقل الموقع الحالي مطلوب',
+            'gender.required' => 'حقل الجنس مطلوب',
+            'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
         ];
         $request->validate([
             'phone'=> 'required|numeric',
