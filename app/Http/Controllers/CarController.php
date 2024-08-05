@@ -69,7 +69,7 @@ class CarController extends Controller
 
         // حساب السعر بناءً على مدة تسجيل المستخدم
         if ($user) {
-            $discountedRate = $car->getDiscountedRate($user);
+            $discountedRate = $car->daily_rate - $car->getDiscountedRate($user);
         } else {
             $discountedRate = $car->daily_rate;
         }

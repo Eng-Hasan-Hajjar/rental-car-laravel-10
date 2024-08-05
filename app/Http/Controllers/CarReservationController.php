@@ -42,9 +42,23 @@ class CarReservationController extends Controller
 
     public function show(CarReservation $reservation)
     {
-       $this->authorize('view', $reservation);
+        // التحقق من صلاحيات المستخدم لعرض الحجز
+        $this->authorize('view', $reservation);
+        // إيجاد السيارة المرتبطة بالحجز
+        $car = $reservation->car;
+        $user = Auth::user();
+        // حساب السعر النهائي وتفاصيل الخصم
+        $discountDetails = [];
 
-        return view('backend.car_reservation.show', compact('reservation'));
+        // حساب السعر النهائي بناءً على مدة تسجيل المستخدم والخصومات الموسمية
+        if ($user) {
+            $discountDetails = $car->getDiscountDetails($user);
+            $finalRate = $car->getFinalRate($user);
+        } else {
+            $finalRate = $car->daily_rate;
+        }
+        // عرض النتائج في العرض المحدد
+        return view('backend.car_reservation.show', compact('reservation', 'car', 'finalRate', 'discountDetails'));
     }
 
     public function edit(CarReservation $reservation)

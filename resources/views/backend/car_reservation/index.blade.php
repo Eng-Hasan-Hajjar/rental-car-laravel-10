@@ -33,7 +33,7 @@
                         <td>{{ $reservation->end_date }}</td>
                         <td>{{ ucfirst($reservation->status) }}</td>
                         <td>
-                            <a href="{{ route('reservations.show', $reservation->id) }}" class="btn btn-info">View</a>
+                            <a href="{{ route('reservations.show', $reservation->id) }}" class="btn btn-info">التفاصيل </a>
                             <a href="{{ route('reservations.edit', $reservation->id) }}" class="btn btn-warning"> تعديل </a>
                             <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
