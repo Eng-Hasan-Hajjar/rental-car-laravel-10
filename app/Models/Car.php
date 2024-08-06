@@ -39,7 +39,10 @@ class Car extends Model
     {
         return $this->hasMany(Maintenance::class);
     }
-
+    public function reservations()
+    {
+        return $this->hasMany(CarReservation::class);
+    }
 
 
     // إضافة دالة لحساب السعر بناءً على مدة تسجيل دخول المستخدم
@@ -154,7 +157,7 @@ class Car extends Model
             'seasonal_discount' => $seasonalDiscountPercentage
         ];
     }
-    
+
 
 
 

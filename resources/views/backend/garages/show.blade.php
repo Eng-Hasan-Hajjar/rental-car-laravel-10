@@ -37,6 +37,7 @@
             <div class="mb-3">
                 <hr>
                 <h4 class="text-center"> السيارات المتوفرة في الكراج </h6>
+                    <p><strong>عدد السيارات:</strong> {{ $garage->cars->count() }}</p>
                 <div class="row">
                     @foreach($garage->cars as $car)
                         <div class="col-md-4 mb-4">

@@ -16,79 +16,83 @@
     </div>
 @endif
 
-<div class="container mt-5">
-    <div class="">
-        @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
-            <div class="row mb-3">
-                <div class="col-md-3">
-                    <a href="{{ route('cars.create') }}" class="btn btn-success">إضافة سيارة جديدة</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="{{ route('reservations.create', ['car' => 1]) }}" class="btn btn-danger">إضافة حجز جديد</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="{{ route('cars.maintenances.create', ['car' => 1]) }}" class="btn btn-warning">إضافة صيانة جديدة</a> <!-- يجب تمرير معرف السيارة المناسب -->
-                </div>
-                <div class="col-md-3">
-                    <a href="{{ route('garages.create') }}" class="btn btn-info">إضافة كراج جديد</a>
-                </div>
-            </div>
-        @endif
-    </div>
+<div class="container mt-5" style="text-align: center">
+
 
     <div class="row">
-        <div class="col-md-3 mb-4">
+        <div class="col-md-6 mb-4">
             <div class="card text-white bg-primary">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-car"></i> عدد السيارات</h5>
-                    <p class="card-text display-4">{{ $carCount }}</p>
+                    <p class="card-text display-6">{{ $carCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-secondary">
+        <div class="col-md-6 mb-4">
+            <div class="card text-white bg-primary">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-user-tie"></i> عدد الزبائن</h5>
-                    <p class="card-text display-4">{{ $customerCount }}</p>
+                    <p class="card-text display-6">{{ $customerCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-success">
+        <div class="col-md-6 mb-1">
+            <div class="card text-white bg-primary">
                 <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-user-shield"></i> عدد المدراء</h5>
-                    <p class="card-text display-4">{{ $adminCount }}</p>
+                    <h5 class="card-title"><i class="fas fa-user-shield"></i> عدد الموظفين</h5>
+                    <p class="card-text display-6">{{ $employeeCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-danger">
+        <div class="col-md-6 mb-4">
+            <div class="card text-white bg-primary">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-tools"></i> عدد الصيانات</h5>
-                    <p class="card-text display-4">{{ $maintenanceCount }}</p>
+                    <p class="card-text display-12">{{ $maintenanceCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-warning">
+        <div class="col-md-6 mb-6">
+            <div class="card text-white bg-primary">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-warehouse"></i> عدد الكراجات</h5>
-                    <p class="card-text display-4">{{ $garageCount }}</p>
+                    <p class="card-text display-12">{{ $garageCount }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-3 mb-4">
-            <div class="card text-white bg-info">
+        <div class="col-md-6 mb-4">
+            <div class="card text-white bg-primary">
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-calendar-alt"></i> عدد الحجوزات</h5>
-                    <p class="card-text display-4">{{ $activeReservationsCount }}</p>
+                    <p class="card-text display-6">{{ $activeReservationsCount }}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
+<div class="container mt-10" style="float:center;position:center; ">
+    @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+        <div class="row mb-6"style="float:center;position:center; ">
+            <div class="col-md-1">
+                <a href="{{ route('cars.create') }}" class="btn btn-success">إضافة سيارة </a>
+            </div>
+            <div class="col-md-1">
+                <a href="{{ route('reservations.create', ['car' => 1]) }}" class="btn btn-danger">إضافة حجز </a>
+            </div>
+            <div class="col-md-1">
+                <a href="{{ route('cars.maintenances.create', ['car' => 1]) }}" class="btn btn-warning">إضافة صيانة </a> <!-- يجب تمرير معرف السيارة المناسب -->
+            </div>
+            <div class="col-md-1">
+                <a href="{{ route('garages.create') }}" class="btn btn-info">إضافة كراج </a>
+            </div>
+        </div>
+    @endif
 </div>

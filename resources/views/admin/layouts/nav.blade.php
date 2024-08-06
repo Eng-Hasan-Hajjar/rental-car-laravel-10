@@ -1,6 +1,6 @@
 {{-- website --}}
 
-<li class="nav-item has-treeview">
+<li class="nav-item has-treeview navbar-white">
     <a href="#" class="nav-link">
       <i class="nav-icon fas fa-globe"></i>
       <p>

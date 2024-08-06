@@ -18,6 +18,7 @@ class AdminDashboardController extends Controller
         $customerCount = User::where('role', 'customer')->count();
         // جلب عدد المدراء
         $adminCount = User::where('role', 'admin')->count();
+        $employeeCount = User::where('role', 'employee')->count();
          // جلب عدد السيارات
          $carCount = Car::count();
          $garageCount = Garage::count();
@@ -27,6 +28,6 @@ class AdminDashboardController extends Controller
          ->count();
 
         // تمرير البيانات إلى العرض
-        return view('layouts.appcar', compact('maintenanceCount','customerCount', 'adminCount',  'carCount', 'activeReservationsCount', 'garageCount'));
+        return view('layouts.appcar', compact('maintenanceCount','customerCount', 'adminCount',  'carCount', 'activeReservationsCount', 'garageCount','employeeCount'));
     }
 }

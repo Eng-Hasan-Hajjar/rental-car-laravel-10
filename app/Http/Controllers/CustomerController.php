@@ -23,8 +23,17 @@ class CustomerController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
+                // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
+        if (auth()->user()->role === 'admin' && !$request->has('user_id')) {
+            Auth::logout(); // تسجيل خروج المدير
+            return redirect()->route('register')
+                            ->with('info', 'يرجى إنشاء حساب مستخدم جديد أولاً.');
+        }
+
+
+
         return view('backend.customers.create');
     }
     /**
@@ -32,7 +41,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $messages = [
             'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',

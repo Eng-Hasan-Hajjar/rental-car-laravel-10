@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rating;
+use App\Models\CarReservation;
 use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class RatingController extends Controller
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'nullable|string|max:500',
         ]);
-
+        $user = Auth::user();
            // تحقق من وجود تقييم سابق
         $existingRating = Rating::where('user_id', auth()->id())
         ->where('car_id', $request->car_id)
@@ -35,6 +36,18 @@ class RatingController extends Controller
             return redirect()->back()
                 ->with('error', 'لا يمكنك تقديم تقييم أكثر من مرة لنفس السيارة.');
         }
+
+
+        // تحقق من وجود حجز سابق
+        $hasReservation = CarReservation::where('user_id', $user->id)
+        ->where('car_id', $request->car_id)
+        ->exists();
+
+        if (!$hasReservation) {
+        return redirect()->back()
+            ->with('error', 'لا يمكنك تقييم هذه السيارة لأنك لم تحجزها.');
+        }
+
 
         Rating::create([
             'user_id' => Auth::id(),

@@ -37,7 +37,6 @@ class CarController extends Controller
         ]);
 
         $image = $request->file('image');
-
         $new_name = rand() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
 
@@ -57,7 +56,7 @@ class CarController extends Controller
 
         Car::create($form_data);
 
-        return redirect('/adminpanel/car')->with('success', 'Data Added successfully.');
+        return redirect('/adminpanel/car')->with('success', 'تمت الإضافة بنجاح ');
 
         return redirect()->route('cars.index')->with('success', 'Car created successfully.');
     }
@@ -67,13 +66,14 @@ class CarController extends Controller
         //$car = Car::find($id);
         $user = Auth::user();
 
-        // حساب السعر بناءً على مدة تسجيل المستخدم
+        /* حساب السعر بناءً على مدة تسجيل المستخدم
         if ($user) {
             $discountedRate = $car->daily_rate - $car->getDiscountedRate($user);
         } else {
-            $discountedRate = $car->daily_rate;
-        }
 
+        }
+        */
+        $discountedRate = $car->daily_rate;
         $garages=Garage::all();
         return view('backend.cars.show', compact('car', 'discountedRate','garages'));
     }
