@@ -43,19 +43,26 @@
                     <div class="form-group">
                         <label for="gender"> الجنس </label>
                         <select name="gender" class="form-control" id="gender">
-                                <option value="1" {{ $customer->gender == '1' ? 'selected' : '' }}>ذكر </option>
-                                <option value="0" {{ $customer->gender == '0' ? 'selected' : '' }}> أنثى </option>
+                                <option value="0" {{ $customer->gender == '0' ? 'selected' : '' }}>ذكر </option>
+                                <option value="1" {{ $customer->gender == '1' ? 'selected' : '' }}> أنثى </option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="birthday">الميلاد  </label>
                         <input type="date" name="birthday" class="form-control" id="birthday" value="{{$customer->birthday  }}">
                     </div>
+                    <div class="form-group">
+                        <label for="driving_license_number">رقم شهادة السواقة</label>
+                        <input type="text" class="form-control" name="driving_license_number" id="driving_license_number"value="{{$customer->driving_license_number  }}" required>
+                    </div>
+
+
+
                     <button type="submit" class="btn btn-primary">حفظ </button>
                     <!-- زر الرجوع -->
                     @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
-                          <a href="{{ url('/adminpanel/customers') }}" class="btn btn-secondary" >  الزائرين </a>
+                          <a href="{{ url('/adminpanel/customers') }}" class="btn btn-secondary" >  الزبائن </a>
                     @else
                          <a href="{{ url('/dashboard') }}" class="btn btn-secondary" >  رجوع </a>
 

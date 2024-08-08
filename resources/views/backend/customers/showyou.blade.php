@@ -71,6 +71,20 @@
 
                     </tr>
 
+                    <tr>
+
+                        <td>
+                            <p><strong>  رقم شهادة السواقة:</strong> {{ $customer->driving_license_number }}</p>
+
+                        </td>
+                        <td>
+
+                        </td>
+
+                    </tr>
+
+
+
                   </table>
 
                 <!-- تفاصيل  -->

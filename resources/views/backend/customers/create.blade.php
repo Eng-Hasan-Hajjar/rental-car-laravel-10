@@ -40,7 +40,7 @@
                                 <label for="work">العمل  </label>
                                 <input type="text" name="work" class="form-control" id="work" value="{{ old('work') }}">
                             </div>
-                           
+
                             <div class="form-group">
                                 <label for="nationality">الجنسية  </label>
                                 <input type="text" name="nationality" class="form-control" id="nationality" value="{{ old('nationality') }}">
@@ -53,14 +53,21 @@
                             <div class="form-group">
                                 <label for="gender"> الجنس </label>
                                 <select name="gender" class="form-control" id="gender">
-                                        <option value="1">ذكر </option>
-                                        <option value="0"> أنثى </option>
+                                        <option value="0">ذكر </option>
+                                        <option value="1"> أنثى </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="birthday">الميلاد  </label>
                                 <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}">
                             </div>
+                            <div class="form-group">
+                                <label for="driving_license_number">رقم شهادة السواقة</label>
+                                <input type="text" class="form-control" name="driving_license_number" id="driving_license_number" required>
+                            </div>
+
+
+
                             <button type="submit" class="btn btn-primary">حفظ </button>
                                 <!-- زر الرجوع -->
                                 @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))

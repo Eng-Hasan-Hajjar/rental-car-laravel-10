@@ -29,6 +29,13 @@
                 </div>
 
                 <div class="mb-3">
+                    <strong>كراج الاستلام:</strong> {{ $reservation->pickupGarage->name }}
+                </div>
+                <div class="mb-3">
+                    <strong>كراج التسليم:</strong> {{ $reservation->dropoffGarage->name }}
+                </div>
+
+                <div class="mb-3">
                     <strong>السعر اليومي الأساسي:</strong> {{ $car->daily_rate }} ليرة
                 </div>
                 @if($discountDetails['user_discount'] > 0)

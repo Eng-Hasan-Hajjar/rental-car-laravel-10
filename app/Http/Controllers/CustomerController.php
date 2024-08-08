@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,6 +53,7 @@ class CustomerController extends Controller
             'current_location.required' => 'حقل الموقع الحالي مطلوب',
             'gender.required' => 'حقل الجنس مطلوب',
             'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
+            'driving_license_number.required' => 'حقل رقم الشهادة  مطلوب',
         ];
         $request->validate([
             'phone'=> 'required|numeric',
@@ -60,7 +62,16 @@ class CustomerController extends Controller
             'current_location' => 'required',
             'gender'=>  'required',
             'birthday'=> 'required',
+            'driving_license_number' => 'required|string|max:255|unique:users',
         ], $messages);
+
+                    // التحقق من عمر المستخدم
+            $age = Carbon::parse($request->birthday)->age;
+            if ($age < 18) {
+                return redirect()->back()->withErrors(['birthday' => 'يجب أن يكون عمرك فوق 18 عامًا لتتمكن من التسجيل.']);
+            }
+
+
         // الحصول على المستخدم المسجل
         $user = auth()->user();
         $customer = new Customer($request->all());

@@ -14,6 +14,8 @@ class CarReservation extends Model
         'start_date',
         'end_date',
         'status',
+        'pickup_garage_id',
+        'dropoff_garage_id',
     ];
 
     public function user()
@@ -26,6 +28,14 @@ class CarReservation extends Model
         return $this->belongsTo(Car::class);
     }
 
+    public function pickupGarage()
+    {
+        return $this->belongsTo(Garage::class, 'pickup_garage_id');
+    }
 
+    public function dropoffGarage()
+    {
+        return $this->belongsTo(Garage::class, 'dropoff_garage_id');
+    }
 
 }

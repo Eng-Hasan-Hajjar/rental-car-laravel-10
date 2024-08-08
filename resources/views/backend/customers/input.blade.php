@@ -20,14 +20,14 @@
                 <div class="card ">
                     <div class="card-header ">إنشاء جديد</div>
                         @if ($errors->any())
-                        <div class="alert alert-danger">
-                        <ul>
-                        @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                    </ul>
-                    </div>
-                    @endif
+                            <div class="alert alert-danger">
+                            <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                            </ul>
+                            </div>
+                        @endif
                     <div class="card-body ">
                         <form method="POST" action="{{ route('customers2.input') }}">
                             @csrf
@@ -67,6 +67,16 @@
                                             <input type="date" name="birthday" class="form-control" id="birthday" value="{{ old('birthday') }}">
                                         </div>
                                 </td>
+
+                                <td>
+                                    <div class="form-group">
+                                        <label for="driving_license_number">رقم شهادة السواقة</label>
+                                        <input type="text" class="form-control" name="driving_license_number" id="driving_license_number" required>
+                                    </div>
+                                </td>
+
+
+
                                 <td>
                                     <div class="form-group">
                                         <label for="gender"> الجنس </label>

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('current_location')->default('حلب');
             $table->boolean('gender')->default(false);
             $table->date('birthday');
+            $table->string('driving_license_number')->nullable();
+
             $table->timestamps();
             // تعيين ترتيب الحقول
             $table->index('user_id');

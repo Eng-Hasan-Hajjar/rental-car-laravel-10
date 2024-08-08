@@ -86,7 +86,9 @@ class CarController extends Controller
     }
 
     public function update(Request $request, Car $car)
-    { $request->validate([
+    {
+
+        $request->validate([
         'brand' => 'required',
 
     ]);
@@ -114,7 +116,7 @@ class CarController extends Controller
     $car->update($form_data);
 
     return redirect()->route('cars.index')
-        ->with('success', 'car updated successfully');
+        ->with('success', 'تم تحديث السيارة بنجاح');
 
     }
 

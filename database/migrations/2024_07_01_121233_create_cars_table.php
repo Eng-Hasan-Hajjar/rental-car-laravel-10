@@ -19,12 +19,12 @@ return new class extends Migration
             $table->string('color')->nullable();;
             $table->integer('seats')->nullable();;
             $table->decimal('daily_rate', 8, 2)->nullable();;
-            $table->string('status')->default('available'); // available, unavailable, in_maintenance
+            $table->string('status')->default('متوفر'); // available, unavailable, in_maintenance
             $table->text('description')->nullable();
             $table->string('image')->nullable();
 
             $table->unsignedBigInteger('fleet_id')->nullable();
-           
+
             $table->foreign('fleet_id')->references('id')->on('fleets')->onDelete('cascade');
 
             $table->timestamps();

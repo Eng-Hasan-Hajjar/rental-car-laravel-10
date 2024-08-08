@@ -11,7 +11,19 @@
 @endsection
 
 
+
 @section('content')
+
+@if ($errors->any())
+<div class="alert alert-danger">
+<ul>
+@foreach ($errors->all() as $error)
+<li>{{ $error }}</li>
+@endforeach
+</ul>
+</div>
+@endif
+
     <div class="container">
         <h1>إنشاء الحجز من أجل السيارة : {{ $car->brand }} {{ $car->model }}</h1>
         <form action="{{ route('reservations.store', $car->id) }}" method="POST">

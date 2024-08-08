@@ -11,6 +11,17 @@
 @endsection
 
 @section('content')
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+        <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+        </ul>
+        </div>
+        @endif
+
     <div class="container">
         <h1> التعديل للحجز</h1>
         <form action="{{ route('reservations.update', $reservation->id) }}" method="POST">

@@ -19,6 +19,14 @@ return new class extends Migration
             $table->date('end_date');
             $table->enum('status', ['معلق', 'مثبت', 'إلغاء'])->default('معلق');
 
+            $table->unsignedBigInteger('pickup_garage_id');
+            $table->unsignedBigInteger('dropoff_garage_id');
+
+            $table->foreign('pickup_garage_id')->references('id')->on('garages')->onDelete('cascade');
+            $table->foreign('dropoff_garage_id')->references('id')->on('garages')->onDelete('cascade');
+
+
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
 

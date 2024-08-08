@@ -29,7 +29,7 @@
                 <p><strong> الموقع الحالي:</strong> {{ $customer->current_location}}</p>
                 <p><strong> الجنس:</strong>   @if($customer->gender == 0) ذكر @else أنثى @endif</p>
                 <p><strong> تاريخ الميلاد:</strong> {{ $customer->birthday }}</p>
-
+                <p><strong> رقم الشهادة:</strong> {{ $customer->driving_license_number}}</p>
                 <div class="btn-group">
                     <a href="{{ route('customers.edit', $customer) }}" class="btn btn-primary">تعديل</a>
                     <form action="{{ route('customers.destroy', $customer) }}" method="POST">

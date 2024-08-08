@@ -1,3 +1,20 @@
+
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
+
+
+
 <!-- resources/views/reservations/partials/form.blade.php -->
 <div class="form-group">
     <label for="start_date"> تاريخ البداية </label>
@@ -15,3 +32,23 @@
         <option value="cancelled" {{ (old('status', $reservation->status ?? '') == 'cancelled') ? 'selected' : '' }}> إلغاء </option>
     </select>
 </div>
+
+
+
+   <div class="form-group">
+        <label for="pickup_garage_id">كراج الاستلام</label>
+        <select name="pickup_garage_id" id="pickup_garage_id" class="form-control">
+            @foreach($garages as $garage)
+                <option value="{{ $garage->id }}">{{ $garage->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="dropoff_garage_id">كراج التسليم</label>
+        <select name="dropoff_garage_id" id="dropoff_garage_id" class="form-control">
+            @foreach($garages as $garage)
+                <option value="{{ $garage->id }}">{{ $garage->name }}</option>
+            @endforeach
+        </select>
+    </div>
