@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('work');
             $table->string('nationality')->default('عربي سوري');
             $table->string('current_location')->default('حلب');
-            $table->boolean('gender')->default(false);
+            $table->boolean('gender');
             $table->date('birthday');
             $table->string('driving_license_number')->nullable();
 

@@ -43,9 +43,9 @@
                                 <td>{{ $car->year }}</td>
 
                                 <td>{{ $car->seats }}</td>
-                                @if($car->status== "available")
+                                @if($car->status== "متوفرة")
                                      <td> متوفرة </td>
-                                @elseif ($car->status== "unavailable")
+                                @elseif ($car->status== "غير متوفرة")
                                      <td>   غير متوفرة</td>
 
                                 @else
@@ -97,15 +97,14 @@
                                 <td>{{ $car->year }}</td>
 
                                 <td>{{ $car->seats }}</td>
-                                @if($car->status== "متوفر")
-                                     <td> متوفرة </td>
-                                @elseif ($car->status== "غير متوفر")
-                                     <td>  غير متوفرة</td>
+                                        @if($car->status== "متوفرة")
+                                            <td> متوفرة </td>
+                                        @elseif ($car->status== "غير متوفرة")
+                                                <td>   غير متوفرة</td>
 
-                                @else
-                                 <td>   في الصيانة </td>
-                                @endif
-
+                                        @else
+                                            <td>   في الصيانة </td>
+                                        @endif
                                 <td>
 
                                     <a href="{{ route('reservations.create', $car->id) }}" class="btn btn-primary">حجز الآن</a>

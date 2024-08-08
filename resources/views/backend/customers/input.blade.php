@@ -77,16 +77,32 @@
 
 
 
-                                <td>
-                                    <div class="form-group">
-                                        <label for="gender"> الجنس </label>
-                                        <select name="gender" class="form-control" id="gender">
-                                                <option value="1">ذكر </option>
-                                                <option value="0"> أنثى </option>
-                                        </select>
-                                    </div>
-                                </td>
+
                                 </tr>
+                                <tr>
+                                    <td>
+                                        <div class="form-group">
+                                            <label for="gender"> الجنس </label>
+                                            <select name="gender" class="form-control" id="gender">
+                                                    <option value="0">ذكر </option>
+                                                    <option value="1"> أنثى </option>
+                                            </select>
+                                        </div>
+                                    </td>
+
+                                    <td>
+
+                                    </td>
+
+
+
+
+                                  </tr>
+
+
+
+
+
                               </table>
                             <button type="submit" class="btn btn-primary">حفظ </button>
                                 <!-- زر الرجوع -->

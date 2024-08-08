@@ -87,3 +87,12 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+
+
+
+
+Route::patch('/reservations/{reservation}/approve', [CarReservationController::class, 'approveReservation'])
+    ->name('reservations.approve');
+
+Route::patch('/reservations/{reservation}/reject', [CarReservationController::class, 'rejectReservation'])
+    ->name('reservations.reject');

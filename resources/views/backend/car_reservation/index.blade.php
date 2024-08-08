@@ -22,6 +22,7 @@
                     <th> تاريخ النهاية </th>
                     <th> الحالة </th>
                     <th> التحكم </th>
+                    <th>   </th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,24 @@
                                 <button type="submit" class="btn btn-danger"> حذف </button>
                             </form>
                         </td>
+                        <td>
+                            @if(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
+                                @if(Auth::user()->can('approve', $reservation))
+                                    <form action="{{ route('reservations.approve', $reservation->id) }}" method="POST">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-success">قبول</button>
+                                    </form>
+
+                                    <form action="{{ route('reservations.reject', $reservation->id) }}" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="btn btn-danger">رفض</button>
+                                    </form>
+                                @endif
+                            @endif
+                        </td>
+
                     </tr>
                 @endforeach
             </tbody>

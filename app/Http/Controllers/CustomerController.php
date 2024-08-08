@@ -62,7 +62,7 @@ class CustomerController extends Controller
             'current_location' => 'required',
             'gender'=>  'required',
             'birthday'=> 'required',
-            'driving_license_number' => 'required|string|max:255|unique:users',
+            'driving_license_number' => 'required|string|max:255',
         ], $messages);
 
                     // التحقق من عمر المستخدم
@@ -137,6 +137,7 @@ class CustomerController extends Controller
             'current_location' => 'required',
             'gender'=>  'required',
             'birthday'=> 'required',
+            'driving_license_number' => 'required|string|max:255',
         ], $messages);
 
         $customer->update($request->all());
@@ -165,10 +166,16 @@ class CustomerController extends Controller
     public function input2(Request $request)
     {
         $messages = [
-            'name.required' => 'حقل  الاسم مطلوب',
             'phone.required' => 'حقل رقم الهاتف مطلوب',
             'phone.numeric' => 'هاتف المستخدم غير صالح',
+            'specialty.required' => 'حقل الاختصاص  مطلوب',
+            'work.required' => 'حقل العمل مطلوب',
+            'nationality.required' => 'حقل الجنسية مطلوب',
+            'current_location.required' => 'حقل الموقع الحالي مطلوب',
+            'gender.required' => 'حقل الجنس مطلوب',
+            'birthday.required' => 'حقل تاريخ الميلاد مطلوب',
         ];
+
         $request->validate([
             'phone'=> 'required|numeric',
             'work'=>  'required',
@@ -176,7 +183,9 @@ class CustomerController extends Controller
             'current_location' => 'required',
             'gender'=>  'required',
             'birthday'=> 'required',
+            'driving_license_number' => 'required|string|max:255',
         ], $messages);
+//dd($request);
           // الحصول على المستخدم المسجل
         $user = auth()->user();
         $customer = new Customer($request->all());

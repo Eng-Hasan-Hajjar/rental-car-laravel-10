@@ -64,4 +64,9 @@ class CarReservationPolicy
     {
         //
     }
+    public function approve(User $user, CarReservation $carReservation)
+    {
+        return $user->id === $carReservation->user_id || $user->can('isEmployee') || $user->can('isAdmin');
+    }
+
 }

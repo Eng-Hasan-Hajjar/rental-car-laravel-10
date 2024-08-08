@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\CarReservation;
 use App\Models\Garage;
+use App\Notifications\ReservationStatusNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,13 @@ class CarReservationController extends Controller
 {
     public function index()
     {
+
+        // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
+        if (auth()->user()->role === 'admin' ) {
+            $reservations = CarReservation::all();
+            return view('backend.car_reservation.index', compact('reservations'));
+        }
+
         $reservations = CarReservation::with('car')->where('user_id', Auth::id())->get();
         return view('backend.car_reservation.index', compact('reservations'));
     }
@@ -46,21 +54,38 @@ class CarReservationController extends Controller
             'dropoff_garage_id' => 'required|exists:garages,id',
 
         ], $messages);
-      //  dd($request);
+          //  dd($request);
+
+                // تحقق من أن السيارة غير محجوزة بالفعل في التواريخ المحددة
+                $existingReservation = CarReservation::where('car_id', $request->car_id)
+                    ->where(function ($query) use ($request) {
+                        $query->whereBetween('start_date', [$request->start_date, $request->end_date])
+                            ->orWhereBetween('end_date', [$request->start_date, $request->end_date])
+                            ->orWhere(function ($query) use ($request) {
+                                $query->where('start_date', '<=', $request->start_date)
+                                    ->where('end_date', '>=', $request->end_date);
+                            });
+                    })
+                    ->exists();
+
+                if ($existingReservation) {
+                    return redirect()->back()->with('error', 'السيارة محجوزة بالفعل في هذه الفترة.');
+                }
+
 
         $reservation = new CarReservation([
             'user_id' => Auth::id(),
             'car_id' => $car->id,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'status' => 'معلق',
+            'status' => 'معلق',   // تعيين الحالة إلى معلق حتى يتم قبول الحجز
             'pickup_garage_id' => $request->pickup_garage_id,
             'dropoff_garage_id' => $request->dropoff_garage_id,
         ]);
       //  dd($reservation);
         $reservation->save();
 
-        return redirect()->route('reservations.index')->with('success', 'تم انشاء الحجز بنجاح');
+        return redirect()->route('reservations.index')->with('success', 'تم تقديم طلب الحجز بنجاح. في انتظار موافقة المدير أو الموظف.');
     }
 
     public function show(CarReservation $reservation)
@@ -137,4 +162,46 @@ class CarReservationController extends Controller
 
         return redirect()->route('reservations.index')->with('success', 'Reservation deleted successfully.');
     }
+
+
+
+
+    public function approveReservation(CarReservation $reservation)
+    {
+        $this->authorize('approve', $reservation); // تأكد من أن المستخدم لديه الصلاحية لقبول الحجز
+
+      //  $reservation = CarReservation::findOrFail($id);
+        // تغيير حالة الحجز إلى مثبت
+        $reservation->update(['status' => 'مثبت']);
+
+              // إرسال إشعار للمستخدم
+    $status = $reservation->status;
+    $car = $reservation->car;
+
+    $reservation->user->notify(new ReservationStatusNotification($status, $car));
+
+        return redirect()->back()->with('success', 'تم قبول الحجز بنجاح.');
+    }
+
+    public function rejectReservation(CarReservation $reservation)
+    {
+        $this->authorize('approve', $reservation); // تأكد من أن المستخدم لديه الصلاحية لرفض الحجز
+
+        // تغيير حالة الحجز إلى إلغاء
+        $reservation->update(['status' => 'إلغاء']);
+
+
+
+               // إرسال إشعار للمستخدم
+               $status = $reservation->status;
+               $car = $reservation->car;
+
+               $reservation->user->notify(new ReservationStatusNotification($status, $car));
+
+
+        return redirect()->back()->with('success', 'تم رفض الحجز بنجاح.');
+    }
+
+
+
 }

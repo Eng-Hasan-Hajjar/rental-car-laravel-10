@@ -16,6 +16,14 @@
     </div>
 @endif
 
+
+<ul>
+    @foreach (Auth::user()->notifications as $notification)
+        <li>{{ $notification->data['message'] }} - {{ $notification->created_at->diffForHumans() }}</li>
+    @endforeach
+</ul>
+
+
 <div class="container mt-5" style="text-align: center">
 
 

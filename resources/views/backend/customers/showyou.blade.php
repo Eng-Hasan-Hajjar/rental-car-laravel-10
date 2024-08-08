@@ -53,7 +53,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <p><strong> الجنس:</strong>   @if($customer->gender == 0) ذكر @else أنثى @endif</p>
+                            <p><strong> الجنس:</strong> @if($customer->gender == 0) ذكر @else أنثى @endif</p>
                     </td>
                         <td>
                     </td>

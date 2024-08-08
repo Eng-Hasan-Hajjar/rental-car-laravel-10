@@ -151,9 +151,9 @@
                     <div class="col-md-6">
                         <strong>الحالة:</strong>
 
-                        @if ( $car->status == "available")
+                        @if ( $car->status == "متوفرة")
                                متوفرة
-                        @elseif ($car->status == "unavailable")
+                        @elseif ($car->status == "غير متوفرة")
                              غير متوفرة
                         @else
                              في الصيانة

@@ -16,7 +16,7 @@ class MaintenanceController extends Controller
 
     public function create()
     {
-        $cars = Car::where('status', 'in_maintenance')->get();
+        $cars = Car::where('status', 'في الصيانة')->get();
         return view('backend.maintenances.create', compact('cars'));
     }
 
@@ -47,7 +47,7 @@ class MaintenanceController extends Controller
 
     public function edit( Maintenance $maintenance)
     {
-        $cars = Car::where('status', 'in_maintenance')->get();
+        $cars = Car::where('status', 'في الصيانة')->get();
         return view('backend.maintenances.edit', compact('cars', 'maintenance'));
     }
 
