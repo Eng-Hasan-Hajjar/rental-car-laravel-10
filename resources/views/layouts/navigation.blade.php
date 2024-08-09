@@ -1,17 +1,74 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100"  style=" direction: rtl;text-align:right">
+<head>
+    <!-- إضافة Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* تنسيق إشعارات التنقل */
+        .navbar .dropdown-menu {
+            left: auto;
+            right: 0;
+        }
+
+        .notification-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-icon .badge {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            font-size: 12px;
+            padding: 4px 6px;
+            border-radius: 50%;
+        }
+
+        /* تنسيق البطاقات */
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+        }
+
+        .card-text {
+            font-size: 2.5rem;
+        }
+
+        /* تنسيق الإشعارات */
+        .notifications-dropdown {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+
+
+
+
+</head>
+
+
+
+
+
+
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100" style="direction: rtl;text-align:right">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-
-                 <!-- Navigation Links -->
-                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                <!-- Navigation Links -->
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboardcar')" :active="request()->routeIs('dashboardcar')">
                         {{ __('لوحة التحكم') }}
                     </x-nav-link>
                 </div>
-
-
 
                 @if (Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -35,44 +92,72 @@
                             {{ __('إدارة أسطول السيارات') }}
                         </x-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('garages.index')" :active="request()->routeIs('garages.index')">
-                            {{ __('إدارة الكراجات ') }}
-                        </x-nav-link>
-                    </div>
-
+                    @if (Auth::user()->can('isAdmin'))
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('garages.index')" :active="request()->routeIs('garages.index')">
+                                {{ __('إدارة الكراجات ') }}
+                            </x-nav-link>
+                        </div>
+                    @endif
                 @elseif (Auth::user()->can('isCustomer'))
-
-
+                    <!-- روابط العملاء -->
                 @else
-
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('car.index')" :active="request()->routeIs('car.index')">
                             {{ __('استعراض السيارات والحجز') }}
                         </x-nav-link>
                     </div>
 
-
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('customers.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('customers.showByUserId', ['userId' => Auth::user()->id])">
-                            {{ __(' معلوماتي ') }}
+                            {{ __('معلوماتي') }}
                         </x-nav-link>
                     </div>
-                @endcan
+                @endif
 
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="url('/')" >
-                        {{ __(' الموقع الرئيسي ') }}
+                    <x-nav-link :href="url('/')">
+                        {{ __('الموقع الرئيسي') }}
                     </x-nav-link>
                 </div>
+            <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
+                            @if(!(Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin')))
 
-
-                @if (Auth::user()->can('isVisitor') )
-
-                @endcan
-
-
+                            <!-- شريط التنقل -->
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav mr-auto"> <!-- استخدم mr-auto لجعل العناصر في أقصى اليسار -->
+                                    <!-- أيقونة الإشعارات -->
+                                    @auth
+                                        <li class="nav-item dropdown notification-icon">
+                                            <a class="nav-link" href="#" id="notificationsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-bell"></i>
+                                                @if(Auth::user()->unreadNotifications->count())
+                                                    <span class="badge badge-danger">{{ Auth::user()->unreadNotifications->count() }}</span>
+                                                @endif
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right notifications-dropdown" aria-labelledby="notificationsDropdown">
+                                                <h6 class="dropdown-header">الإشعارات</h6>
+                                                @forelse(Auth::user()->notifications as $notification)
+                                                    <a href="#" class="dropdown-item">
+                                                        {{ $notification->data['message'] }}
+                                                        <br><small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
+                                                    </a>
+                                                @empty
+                                                    <p class="text-center">لا توجد إشعارات جديدة</p>
+                                                @endforelse
+                                            </div>
+                                        </li>
+                                    @endauth
+                                </ul>
+                            </div>
+                        </nav>
+                    @endif
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -98,7 +183,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -144,7 +228,6 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
@@ -155,9 +238,6 @@
         </div>
     </div>
 </nav>
-
-
-
 
 
 
