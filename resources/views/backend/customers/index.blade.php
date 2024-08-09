@@ -17,6 +17,8 @@
         <div class="card hcard helement hcard-body">
             <div class="card-header  "><p  class="float-right">جميع الزبائن</p></div>
             <div class="card-header">
+                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
                 <a href="{{ route('customers.create') }}" class=" btn btn-success float-right">إنشاء جديد</a>
             </div>
             <div class="card-body">

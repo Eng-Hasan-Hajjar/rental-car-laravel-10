@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-right: 10px;margin-left:100px">
         <h1>حجوزاتك </h1>
         <table class="table mt-4">
             <thead>

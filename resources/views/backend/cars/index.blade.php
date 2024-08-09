@@ -18,8 +18,12 @@
             @if (Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
             <div class="container" style="margin-right: 10px;margin-left:100px">
+                        <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
                 <h1 style="direction: rtl;text-align:center;padding-top:20px">السيارات</h1>
-                 <a href="{{ route('cars.create') }}" class="btn btn-primary">اضافة سيارة جديدة </a>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
+                <a href="{{ route('cars.create') }}" class="btn btn-primary">اضافة سيارة جديدة </a>
                  <table class="table mt-4"style="margin-left:300px">
                     <thead>
                         <tr>
@@ -73,6 +77,8 @@
             @else
             <div class="container" style="margin-right: 10px;margin-left:0px">
                 <h1 style="direction: ltr;text-align:center;padding-top:20px">السيارات</h1>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
                  <table class="table mt-4"style="margin-left:0px">
                     <thead>
                         <tr>
@@ -110,12 +116,7 @@
                                     <a href="{{ route('reservations.create', $car->id) }}" class="btn btn-primary">حجز الآن</a>
 
                                     <a href="{{ route('cars.show', $car->id) }}" class="btn btn-info">تفاصيل</a>
-                                    <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-warning">تحرير</a>
-                                    <form action="{{ route('cars.destroy', $car->id) }}" method="POST" style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"onclick="return confirm('هل أنت متأكد من عملية الحذف؟');">حذف</button>
-                                    </form>
+
                                 </td>
 
 

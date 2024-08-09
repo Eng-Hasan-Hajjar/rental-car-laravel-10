@@ -22,13 +22,15 @@
         </div>
         @endif
 
-    <div class="container">
+    <div class="container"style="direction: ltr;text-align:right;padding-top:0px;width:50%">
         <h1> التعديل للحجز</h1>
-        <form action="{{ route('reservations.update', $reservation->id) }}" method="POST">
+        <form action="{{ route('reservations.update', $reservation->id) }}" method="POST"style="direction: ltr;text-align:right;padding-top:0px;width:50%">
             @csrf
             @method('PUT')
             @include('backend.car_reservation.partials.form', ['reservation' => $reservation])
             <button type="submit" class="btn btn-primary"> تحديث </button>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
         </form>
     </div>
 @endsection

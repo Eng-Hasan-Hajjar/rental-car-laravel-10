@@ -24,12 +24,15 @@
 </div>
 @endif
 
-    <div class="container">
-        <h1>إنشاء الحجز من أجل السيارة : {{ $car->brand }} {{ $car->model }}</h1>
-        <form action="{{ route('reservations.store', $car->id) }}" method="POST">
+    <div class="container"style="direction: ltr;text-align:right;padding-top:0px;width:50%" >
+        <h3>إنشاء الحجز من أجل السيارة : {{ $car->brand }} {{ $car->model }}</h1>
+
+        <form action="{{ route('reservations.store', $car->id) }}" method="POST"style="direction: ltr;text-align:right;padding-top:0px;width:50%">
             @csrf
             @include('backend.car_reservation.partials.form')
             <button type="submit" class="btn btn-primary"> حفظ الحجز</button>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
         </form>
     </div>
 @endsection

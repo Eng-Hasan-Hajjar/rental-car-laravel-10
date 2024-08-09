@@ -13,6 +13,8 @@
 @section('content')
     <div class="container">
         <h1> الكراجات </h1>
+        <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+
         <a href="{{ route('garages.create') }}" class="btn btn-primary"> إنشاء جديد </a>
         <table class="table mt-4">
             <thead>
