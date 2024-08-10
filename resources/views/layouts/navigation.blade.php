@@ -108,6 +108,17 @@
                         </x-nav-link>
                     </div>
 
+
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link :href="route('ratings2.index')" :active="request()->routeIs('ratings2.index')">
+                            {{ __(' التقييمات ') }}
+                        </x-nav-link>
+                    </div>
+
+
+
+
+
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('customers.showByUserId', ['userId' => Auth::user()->id])" :active="request()->routeIs('customers.showByUserId', ['userId' => Auth::user()->id])">
                             {{ __('معلوماتي') }}

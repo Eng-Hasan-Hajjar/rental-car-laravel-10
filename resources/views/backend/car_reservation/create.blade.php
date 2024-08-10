@@ -31,7 +31,7 @@
             @csrf
             @include('backend.car_reservation.partials.form')
             <button type="submit" class="btn btn-primary"> حفظ الحجز</button>
-            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوحة التحكم  </a>
 
         </form>
     </div>

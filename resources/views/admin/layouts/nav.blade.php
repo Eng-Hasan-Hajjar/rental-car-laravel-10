@@ -84,7 +84,7 @@
   </li>
 
 {{-- garages --}}
-
+@if (Auth::user()->can('isAdmin'))
 
 <li class="nav-item has-treeview">
     <a href="#" class="nav-link">
@@ -110,6 +110,8 @@
 
     </ul>
   </li>
+
+@endif
 
 
 

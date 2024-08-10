@@ -13,6 +13,8 @@
 @section('content')
     <div class="container" style="margin-right: 10px;margin-left:100px">
         <h1>حجوزاتك </h1>
+        <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوحة التحكم  </a>
+
         <table class="table mt-4">
             <thead>
                 <tr>
@@ -39,7 +41,7 @@
                             <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"> حذف </button>
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('هل أنت متأكد من عملية الحذف؟');"> حذف </button>
                             </form>
                         </td>
                         <td>

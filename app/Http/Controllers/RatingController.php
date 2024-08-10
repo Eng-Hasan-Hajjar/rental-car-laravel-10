@@ -13,7 +13,7 @@ class RatingController extends Controller
     public function index()
     {
         $ratings = Rating::with(['user', 'car'])->get();
-        return view('frontend.ratings.index', compact('ratings'));
+        return view('backend.ratings.index', compact('ratings'));
     }
 
 
@@ -69,7 +69,7 @@ class RatingController extends Controller
     {
        // $ratings = Rating::where('camp_ground_id', $id)->get();
         $car = Car::with('ratings.user')->findOrFail($id);
-        return view('frontend.cars.show', compact('car','ratings'));
+        return view('backend.cars.show', compact('car','ratings'));
     }
 
 

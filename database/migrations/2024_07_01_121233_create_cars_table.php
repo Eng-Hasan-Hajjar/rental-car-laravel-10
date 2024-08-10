@@ -18,7 +18,7 @@ return new class extends Migration
             $table->year('year')->nullable();;
             $table->string('color')->nullable();;
             $table->integer('seats')->nullable();;
-            $table->decimal('daily_rate', 8, 2)->nullable();;
+            $table->decimal('daily_rate', 12, 2)->nullable();;
             $table->string('status')->default('متوفر'); // available, unavailable, in_maintenance
             $table->text('description')->nullable();
             $table->string('image')->nullable();

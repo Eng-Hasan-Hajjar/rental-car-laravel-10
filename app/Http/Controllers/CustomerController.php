@@ -16,10 +16,27 @@ class CustomerController extends Controller
     public function index()
     {
         $user = auth()->user();
+
+    // جلب المستخدمين الذين دورهم 'customer' فقط
+    $customers = Customer::whereHas('user', function($query) {
+        $query->where('role', 'customer');
+    })->latest()->paginate(5);
+    $users = User::latest()->paginate(5);
+    return view('backend.customers.index', compact('customers','users'))
+                ->with('i', (request()->input('page', 1) - 1) * 5);
+
+        /*
+        $user = auth()->user();
         $customers = Customer::latest()->paginate(5);
         $users = User::latest()->paginate(5);
+        // تحقق مما إذا كان مديرًا وإذا لم يكن لديه معرف المستخدم (user_id)
+        if (auth()->user()->role === 'customer' ) {
+            $customers = Customer::latest()->paginate(5);
+        }
+
         return view('backend.customers.index',compact('customers','users'))
                     ->with('i', (request()->input('page', 1) - 1) * 5);
+                    */
     }
     /**
      * Show the form for creating a new resource.
@@ -32,9 +49,6 @@ class CustomerController extends Controller
             return redirect()->route('register')
                             ->with('info', 'يرجى إنشاء حساب مستخدم جديد أولاً.');
         }
-
-
-
         return view('backend.customers.create');
     }
     /**

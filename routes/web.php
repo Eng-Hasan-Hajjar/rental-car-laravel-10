@@ -96,3 +96,6 @@ Route::patch('/reservations/{reservation}/approve', [CarReservationController::c
 
 Route::patch('/reservations/{reservation}/reject', [CarReservationController::class, 'rejectReservation'])
     ->name('reservations.reject');
+
+
+Route::get('ratings2', [RatingController::class, 'index'])->name('ratings2.index');

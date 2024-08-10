@@ -18,10 +18,9 @@
             @if (Auth::user()->can('isEmployee') || Auth::user()->can('isAdmin'))
 
             <div class="container" style="margin-right: 10px;margin-left:100px">
-                        <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
 
                 <h1 style="direction: rtl;text-align:center;padding-top:20px">السيارات</h1>
-                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوحة التحكم  </a>
 
                 <a href="{{ route('cars.create') }}" class="btn btn-primary">اضافة سيارة جديدة </a>
                  <table class="table mt-4"style="margin-left:300px">
@@ -77,7 +76,7 @@
             @else
             <div class="container" style="margin-right: 10px;margin-left:0px">
                 <h1 style="direction: ltr;text-align:center;padding-top:20px">السيارات</h1>
-                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+                <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوحة التحكم  </a>
 
                  <table class="table mt-4"style="margin-left:0px">
                     <thead>

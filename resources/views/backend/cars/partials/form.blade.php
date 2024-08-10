@@ -25,8 +25,8 @@
 <div class="form-group">
     <label for="status">الحالة  </label>
     <select class="form-control" id="status" name="status" required>
-        <option value="متوفر" {{ old('status', $car->status ?? '') == 'متوفر' ? 'selected' : '' }}>متوفر</option>
-        <option value="غير متوفر" {{ old('status', $car->status ?? '') == 'غير متوفر' ? 'selected' : '' }}>غير متوفر</option>
+        <option value="متوفرة" {{ old('status', $car->status ?? '') == 'متوفرة' ? 'selected' : '' }}>متوفر</option>
+        <option value="غير متوفرة" {{ old('status', $car->status ?? '') == 'غير متوفرة' ? 'selected' : '' }}>غير متوفر</option>
         <option value="في الصيانة" {{ old('status', $car->status ?? '') == 'في الصيانة' ? 'selected' : '' }}>في الصيانة </option>
     </select>
 </div>

@@ -117,7 +117,7 @@ class CarReservationController extends Controller
         return view('backend.car_reservation.edit', compact('reservation','garages'));
     }
 
-    public function update(Request $request, CarReservation $reservation)
+    public function update(Request $request, CarReservation $reservation,Car $car)
     {
         $this->authorize('update', $reservation);
         $messages = [
@@ -137,21 +137,57 @@ class CarReservationController extends Controller
 
         ];
 
+                // تحقق من أن السيارة غير محجوزة بالفعل في التواريخ المحددة
+                $existingReservation = CarReservation::where('car_id', $request->car_id)
+                    ->where(function ($query) use ($request) {
+                        $query->whereBetween('start_date', [$request->start_date, $request->end_date])
+                            ->orWhereBetween('end_date', [$request->start_date, $request->end_date])
+                            ->orWhere(function ($query) use ($request) {
+                                $query->where('start_date', '<=', $request->start_date)
+                                    ->where('end_date', '>=', $request->end_date);
+                            });
+                    })
+                    ->exists();
+
+                if ($existingReservation) {
+                    return redirect()->back()->with('error', 'السيارة محجوزة بالفعل في هذه الفترة.');
+                }
+
+
        $request->validate([
+
             'start_date' => 'required|date|after_or_equal:today',
             'end_date' => 'required|date|after:start_date',
-            'status' => 'required|in:pending,confirmed,cancelled',
+          'status' => 'required|in:pending,confirmed,cancelled',
+            'pickup_garage_id' => 'required|exists:garages,id',
+            'dropoff_garage_id' => 'required|exists:garages,id',
         ], $messages);
 
+
+        $reservation = new CarReservation([
+
+        ]);
+      //  dd($reservation);
+       // $reservation->save();
+        $form_data = array(
+            'user_id' => Auth::id(),
+            'car_id' => $car->id,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'status'=> $request->status,   // تعيين الحالة إلى معلق حتى يتم قبول الحجز
+            'pickup_garage_id' => $request->pickup_garage_id,
+            'dropoff_garage_id' => $request->dropoff_garage_id,
+
+        );
         try {
-            $reservation->update($request->all());
+            $reservation->update($form_data);
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'An error occurred while updating the reservation. Please try again.');
+            return redirect()->back()->with('error', 'يوجد خطأ من أجل التحديث');
         }
 
            // $reservation->update($request->all());
 
-        return redirect()->route('reservations.index')->with('success', 'Reservation updated successfully.');
+        return redirect()->route('reservations.index')->with('success', 'تم التحديث.');
     }
 
     public function destroy(CarReservation $reservation)

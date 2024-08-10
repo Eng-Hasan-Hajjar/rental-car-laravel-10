@@ -29,7 +29,7 @@
             @method('PUT')
             @include('backend.car_reservation.partials.form', ['reservation' => $reservation])
             <button type="submit" class="btn btn-primary"> تحديث </button>
-            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوجة التحكم  </a>
+            <a href="{{ route('dashboard') }}" class="btn btn-primary"> لوحة التحكم  </a>
 
         </form>
     </div>
