@@ -74,13 +74,7 @@
 
 </p>
 
-<p align="center">
 
-لوحة التحكم الصفحات.
-
-<img src="interfaces/لوحة التحكم الصفحات.PNG" alt="Build Status">
-
-</p>
 <p align="center">
 
 لوحة التحكم بالسيارات.
