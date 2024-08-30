@@ -1,89 +1,19 @@
+### Eng Hasan Hajjar   - 2024 projects
+### المهندس حسن حجار
+### للاستشارات البرمجية التواصل على الرقم عبر الواتس آب
+###   +963933912076
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 
-واجهة الموقع :
+واجهة الموقع .
 
 <img src="interfaces/واجهة الموقع .PNG" alt="Build Status">
 
 </p>
-<p align="center">
 
-لوحة التحكم الصفحات.
-
-<img src="interfaces/لوحة التحكم الصفحات.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-car control panel.
-
-<img src="interfaces/car control panel.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-add car.
-
-<img src="interfaces/add car.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-carages.
-
-<img src="interfaces/carages.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-details car. 
-
-<img src="interfaces/details car.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-details garages.
-
-<img src="interfaces/details garages.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-edit car.
-
-<img src="interfaces/edit car.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-login.
-
-<img src="interfaces/login.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-register.
-
-<img src="interfaces/register.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-اتصل بنا .
-
-<img src="interfaces/اتصل بنا .PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-اضافة الكراج داخل واجهة التفاصيل للسيارة.
-
-<img src="interfaces/اضافة الكراج داخل واجهة التفاصيل للسيارة.PNG" alt="Build Status">
-
-</p>
 <p align="center">
 
 البحث عن السيارة.
@@ -91,18 +21,27 @@ register.
 <img src="interfaces/البحث عن السيارة.PNG" alt="Build Status">
 
 </p>
+
+
 <p align="center">
 
-التعديل للكراجات.
+حول الموقع.
 
-<img src="interfaces/التعديل للكراجات.PNG" alt="Build Status">
+<img src="interfaces/حول الموقع.PNG" alt="Build Status">
 
 </p>
 <p align="center">
 
-الزائرين.
+تسجيل الدخول.
 
-<img src="interfaces/الزائرين.PNG" alt="Build Status">
+<img src="interfaces/login.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+انشاء حساب.
+
+<img src="interfaces/register.PNG" alt="Build Status">
 
 </p>
 <p align="center">
@@ -114,16 +53,75 @@ register.
 </p>
 <p align="center">
 
-الصيانات.
+الكراجات.
 
-<img src="interfaces/الصيانات.PNG" alt="Build Status">
+<img src="interfaces/carages.PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+تفاصيل الكراج.
+
+<img src="interfaces/details garages.PNG" alt="Build Status">
 
 </p>
 <p align="center">
 
-انشاء الزائر. 
+التعديل للكراجات.
 
-<img src="interfaces/انشاء الزائر.PNG" alt="Build Status">
+<img src="interfaces/التعديل للكراجات.PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+لوحة التحكم الصفحات.
+
+<img src="interfaces/لوحة التحكم الصفحات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+لوحة التحكم بالسيارات.
+
+<img src="interfaces/car control panel.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+اضافة السيارة.
+
+<img src="interfaces/add car.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تعديل السيارة.
+
+<img src="interfaces/edit car.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل السيارة. 
+
+<img src="interfaces/details car.PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+اضافة الكراج داخل واجهة التفاصيل للسيارة.
+
+<img src="interfaces/اضافة الكراج داخل واجهة التفاصيل للسيارة.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تقييم السيارة وفق غوغل والتعليقات.
+
+<img src="interfaces/تقييم السيارة وفق غوغل والتعليقات.PNG" alt="Build Status">
 
 </p>
 <p align="center">
@@ -135,30 +133,9 @@ register.
 </p>
 <p align="center">
 
-تفاصيل الزائر.
+اتصل بنا .
 
-<img src="interfaces/تفاصيل الزائر.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-تفاصيل الكراج .
-
-<img src="interfaces/تفاصيل الكراج .PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.
-
-<img src="interfaces/تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.PNG" alt="Build Status">
-
-</p>
-<p align="center">
-
-تفاصيل صيانة سيارة.
-
-<img src="interfaces/تفاصيل صيانة سيارة.PNG" alt="Build Status">
+<img src="interfaces/اتصل بنا .PNG" alt="Build Status">
 
 </p>
 
@@ -172,18 +149,60 @@ register.
 
 <p align="center">
 
-تقييم السيارة وفق غوغل والتعليقات.
+الزائرين.
 
-<img src="interfaces/تقييم السيارة وفق غوغل والتعليقات.PNG" alt="Build Status">
+<img src="interfaces/الزائرين.PNG" alt="Build Status">
 
 </p>
 <p align="center">
 
-حول الموقع.
+انشاء الزائر. 
 
-<img src="interfaces/حول الموقع.PNG" alt="Build Status">
+<img src="interfaces/انشاء الزائر.PNG" alt="Build Status">
 
 </p>
+<p align="center">
+
+تفاصيل الزائر.
+
+<img src="interfaces/تفاصيل الزائر.PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+الصيانات.
+
+<img src="interfaces/الصيانات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل صيانة سيارة.
+
+<img src="interfaces/تفاصيل صيانة سيارة.PNG" alt="Build Status">
+
+</p>
+
+
+
+<p align="center">
+
+تفاصيل الكراج .
+
+<img src="interfaces/تفاصيل الكراج .PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.
+
+<img src="interfaces/تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.PNG" alt="Build Status">
+
+</p>
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
