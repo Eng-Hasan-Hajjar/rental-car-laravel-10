@@ -1,12 +1,189 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+
+واجهة الموقع :
+
+<img src="interfaces/واجهة الموقع .PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+لوحة التحكم الصفحات.
+
+<img src="interfaces/لوحة التحكم الصفحات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+car control panel.
+
+<img src="interfaces/car control panel.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+add car.
+
+<img src="interfaces/add car.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+carages.
+
+<img src="interfaces/carages.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+details car. 
+
+<img src="interfaces/details car.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+details garages.
+
+<img src="interfaces/details garages.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+edit car.
+
+<img src="interfaces/edit car.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+login.
+
+<img src="interfaces/login.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+register.
+
+<img src="interfaces/register.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+اتصل بنا .
+
+<img src="interfaces/اتصل بنا .PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+اضافة الكراج داخل واجهة التفاصيل للسيارة.
+
+<img src="interfaces/اضافة الكراج داخل واجهة التفاصيل للسيارة.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+البحث عن السيارة.
+
+<img src="interfaces/البحث عن السيارة.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+التعديل للكراجات.
+
+<img src="interfaces/التعديل للكراجات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+الزائرين.
+
+<img src="interfaces/الزائرين.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+الصفحات المتوفرة داخل الداش بورد .
+
+<img src="interfaces/الصفحات المتوفرة داخل الداش بورد .PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+الصيانات.
+
+<img src="interfaces/الصيانات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+انشاء الزائر. 
+
+<img src="interfaces/انشاء الزائر.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تحديد الكراج للسيارة.
+
+<img src="interfaces/تحديد الكراج للسيارة.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل الزائر.
+
+<img src="interfaces/تفاصيل الزائر.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل الكراج .
+
+<img src="interfaces/تفاصيل الكراج .PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.
+
+<img src="interfaces/تفاصيل الكراج كاملة مع السيارات المتوفرة فيه.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+تفاصيل صيانة سيارة.
+
+<img src="interfaces/تفاصيل صيانة سيارة.PNG" alt="Build Status">
+
 </p>
 
+<p align="center">
+
+البحث عن السيارة.
+
+<img src="interfaces/البحث عن السيارة.PNG" alt="Build Status">
+
+</p>
+
+<p align="center">
+
+تقييم السيارة وفق غوغل والتعليقات.
+
+<img src="interfaces/تقييم السيارة وفق غوغل والتعليقات.PNG" alt="Build Status">
+
+</p>
+<p align="center">
+
+حول الموقع.
+
+<img src="interfaces/حول الموقع.PNG" alt="Build Status">
+
+</p>
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
